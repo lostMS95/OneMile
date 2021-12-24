@@ -13,12 +13,10 @@ local.properties
 .settings/
 .loadpath
 .recommenders
-# properties
-*.properties
+
 # External tool builders
 .externalToolBuilders/
 
-tartget/
 # Locally stored "Eclipse launch configurations"
 *.launch
 
@@ -118,3 +116,6 @@ buildNumber.properties
 
 ### Logging ###
 log/
+
+### properties ###
+*.properties
