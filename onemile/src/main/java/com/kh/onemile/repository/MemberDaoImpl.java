@@ -4,7 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.kh.onemile.dto.member.MemberDTO;
+import com.kh.onemile.entity.member.MemberDTO;
 
 @Repository
 public class MemberDaoImpl implements MemberDao{
