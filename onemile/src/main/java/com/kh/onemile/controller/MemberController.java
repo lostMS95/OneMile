@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.kh.onemile.dto.member.MemberDTO;
+import com.kh.onemile.entity.member.MemberDTO;
 import com.kh.onemile.service.member.MemberService;
 
 
