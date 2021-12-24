@@ -19,8 +19,8 @@
 	<!-- 등록 -->
 	<insert id="insert" parameterType="MemberDto">
 		insert into member(
-			member_id, member_pw, member_nick,
-			member_birth, member_email, member_phone
+			member_no, email, pw, nick,
+			birth, , member_phone
 		)
 		values(
 			#{memberId}, #{memberPw}, #{memberNick},
