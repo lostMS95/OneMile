@@ -1,42 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!-- 
-	이 파일은 프로젝트 관리 프레임워크인 Maven Framework의 중앙 제어 설정 파일입니다.
-	이 파일에 프로젝트 설정을 모두 마친 후 build를 하면 프로젝트 구조가 변경됩니다.
-	기존의 Java EE 개발할 때 처럼 설정을 일일이 메뉴에서 할 필요가 없게 됩니다.
- -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 
-	<!-- 
-		현재 프로젝트의 정보
-		- modelVersion : 사용할 maven 프로젝트 모델 버전(변경하지 않음)
-		- groupId : 프로젝트의 대표 그룹 식별자(e.g. 제조사). top-level-package의 1,2계층
-		- artifactId : 애플리케이션의 식별자(e.g. 제품). top-level-package의 3계층
-		- name : 프로젝트의 context 식별자(e.g. 프로젝트명)
-		- packaging : 배포 형태(jar/war)
-		- version : 프로젝트의 현재 버전(major.minor.release)
-	-->
-<modelVersion>4.0.0</modelVersion>
+	<!-- 현재 프로젝트의 정보 -->
+	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.kh</groupId>
 	<artifactId>onemile</artifactId>
 	<name>onemile</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
+	
 	<properties>
 		<java-version>1.8</java-version>
 		<org.springframework-version>5.3.13</org.springframework-version>
 		<org.aspectj-version>1.9.7</org.aspectj-version>
 		<org.slf4j-version>1.7.32</org.slf4j-version>
 	</properties>
-
-	<!-- 
-		properties 영역에서는 이 문서에서 사용할 데이터들을 변수로 선언할 수 있다.
-		= 사용은 ${변수명} 과 같이 한다
-		= 주로 버전 관련 정보나 경로 관련 정보를 저장한다
-	 -->
 	
-	<!--  dependencies 영역  -->
+	<!-- dependencies 영역은 프로젝트에서 필요로 하는 라이브러리(의존성) 정보를 선언하는 영역 -->
 	<dependencies>
 	
 		<!-- Spring -->
@@ -83,29 +64,15 @@
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
 		</dependency>
+		
+		<!-- 
+			-slf4j 내부에 포함된 log4j의 보안이슈에 의한 의존성 교체 설정
+			-최신버전 2.17.0설정
+		-->
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.15</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.mail</groupId>
-					<artifactId>mail</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>javax.jms</groupId>
-					<artifactId>jms</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jdmk</groupId>
-					<artifactId>jmxtools</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jmx</groupId>
-					<artifactId>jmxri</artifactId>
-				</exclusion>
-			</exclusions>
-			<scope>runtime</scope>
+    		<groupId>org.apache.logging.log4j</groupId>
+   		 	<artifactId>log4j-core</artifactId>
+    		<version>2.17.0</version>
 		</dependency>
 
 		<!-- @Inject -->
@@ -134,11 +101,7 @@
 			<version>1.2</version>
 		</dependency>
 	
-		<!-- 
-			테스트를 위한 의존성 추가
-			- junit : 자바의 독립적인 테스트 프레임워크
-			- spring-test : junit 등을 spring에 맞게 사용할 수 있도록 도와주는 어댑터 의존성
-		 -->
+		<!-- 테스트를 위한 의존성 추가 -->
 		<dependency>
 		    <groupId>junit</groupId>
 		    <artifactId>junit</artifactId>
@@ -190,7 +153,7 @@
 		    <version>2.0.6</version>
 		</dependency>
 		
-		<!-- 롬복 -->
+		<!-- 롬복 : 클래스 코드 자동화 라이브러리 -->
 		<dependency>
 		    <groupId>org.projectlombok</groupId>
 		    <artifactId>lombok</artifactId>
@@ -219,6 +182,42 @@
 		    <groupId>commons-fileupload</groupId>
 		    <artifactId>commons-fileupload</artifactId>
 		    <version>1.4</version>
+		</dependency>
+		
+		<!-- 
+			이메일 발송 관련 의존성
+			- com.sun.mail.javax.mail : 코어 의존성
+			- javax.mail.javax.mail-api : 자바 API 의존성
+			- org.springframework.spring-context-support : 스프링 어댑터 의존성
+			
+			(참고) Java Mail 1.5 미만은 com.sun.mail.javax.mail을 추가할 필요가 없다(통합되어 있음)
+			- java.mail.mail : 코어 의존성 및 자바 의존성
+			- org.springframework.spring-context-support : 스프링 어댑터 의존성
+		 -->
+		<dependency>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>javax.mail</artifactId>
+		    <version>1.6.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>javax.mail-api</artifactId>
+		    <version>1.6.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+		
+		<!-- 
+			데이터 변환 라이브러리
+			= 의존성만 추가하면 모든 @RestController의 반환값을 변환 처리한다 
+		-->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.13.0</version>
 		</dependency>
 		
 	</dependencies>
