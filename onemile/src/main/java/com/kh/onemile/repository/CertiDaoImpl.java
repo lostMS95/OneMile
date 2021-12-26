@@ -22,8 +22,4 @@ public class CertiDaoImpl implements CertiDao{
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-
-
-
 }

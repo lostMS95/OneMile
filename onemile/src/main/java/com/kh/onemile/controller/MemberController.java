@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.onemile.entity.member.MemberDTO;
 import com.kh.onemile.entity.member.certi.CertiDTO;
-import com.kh.onemile.repository.CertiDao;
 import com.kh.onemile.repository.MemberDao;
 import com.kh.onemile.service.email.EmailService;
 import com.kh.onemile.service.member.MemberService;
@@ -31,7 +30,7 @@ public class MemberController {
 	@Autowired
 	private EmailService emailService;
 	@Autowired
-	private CertiDao certiDao;
+
 	
 	//프로필 없는 회원가입
 	@GetMapping("/join")
@@ -120,21 +119,21 @@ public class MemberController {
 		return "member/check";
 	}
 	//이메일 체크
-	@PostMapping("/email_check")
-	public String check(@ModelAttribute CertiDTO certiDTO) {
-		boolean success = certiDao.check(certiDTO);
-		if(success) {
-			return "redirect:/success";//절대경로
+//	@PostMapping("/email_check")
+//	public String check(@ModelAttribute CertiDTO certiDTO) {
+//		boolean success = certiDao.check(certiDTO);
+//		if(success) {
+//			return "redirect:/success";//절대경로
 //			return "redirect:success";//상대경로
-		}
-		else {
-			return "redirect:/?error";
-		}
-	}
-	
-	@GetMapping("/success")
-	public String success() {
-		return "success";
-	}
+//		}
+//		else {
+//			return "redirect:/?error";
+//		}
+//	}
+//	
+//	@GetMapping("/success")
+//	public String success() {
+//		return "success";
+//	}
 	
 }
