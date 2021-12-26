@@ -10,14 +10,14 @@ public class MemberDTO {
 	private int memberNo;
 	private String email;
 	private String pw;
-	private String nickName;
+	private String nick;
 	private String phone;
 	private String gender;
-	private Date date;
+	private Date birth;
 	private String grade;
 	private Date joinDate;
 	private String mbti;
-	private String Intro;
+	private String intro;
 	private String corona;
 	private Date nickModi;
 	private String exitYN;
