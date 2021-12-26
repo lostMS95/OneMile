@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 
 <%-- 페이지에서 사용할 JSTL 변수 --%>
-<c:set var="login" value="${ses != null}"></c:set>
+<c:set var="login" value="${logId != null}"></c:set>
 <c:set var="admin" value="${grade == '관리자'}"></c:set>
 <c:set var="root" value="${pageContext.request.contextPath}"></c:set>
 
@@ -69,7 +69,7 @@
                 <div class="title-wrapper center">
                     <h1>원마일<h1>
                 </div>
-                <span>[<%=session.getAttribute("ses")%>]님</span>
+                <span>[<%=session.getAttribute("logId")%>]님</span>
                 <span>[<%=session.getAttribute("grade") %>]등급</span>
             </div>
 

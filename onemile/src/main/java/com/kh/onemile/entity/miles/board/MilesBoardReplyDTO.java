@@ -8,4 +8,5 @@ public class MilesBoardReplyDTO {
 	private int mrNo; //시퀀스
 	private int replyNo;
 	private int mbNo; //게시판 글에 좋아요한 회원 번호
+	
 }
