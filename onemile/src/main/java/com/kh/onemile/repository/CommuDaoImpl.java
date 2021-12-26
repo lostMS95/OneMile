@@ -21,4 +21,21 @@ public class CommuDaoImpl implements CommuDao{
 		int seq = sqlSession.selectOne("commu.sequence");
 		return seq;
 	}
+
+	@Override
+	public boolean change(CommuDTO commuDto) {
+		int count = sqlSession.update("commu.change", commuDto);
+		return count > 0;
+	}
+
+	@Override
+	public boolean hide(String viewYN) {
+		int count = sqlSession.update("commu.hide", viewYN);
+		return count > 0;
+	}
+
+	@Override
+	public void withMap(CommuDTO commuDto) {
+		sqlSession.insert("commu.withMap", commuDto);
+	}
 }

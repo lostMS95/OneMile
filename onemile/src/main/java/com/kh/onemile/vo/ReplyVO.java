@@ -6,7 +6,6 @@ import lombok.Data;
 
 @Data
 public class ReplyVO {
-	private int replyNo; //댓글 번호 - 시퀀스
 	private int memberNo; //댓글 작성자
 	private int replyReceiverNo; //댓글 받는 사람
 	
