@@ -11,6 +11,7 @@ public class MemberDaoImpl implements MemberDao{
 	
 	@Autowired
 	private SqlSession sqlSession;
+	
 	@Override
 	public void join(MemberDTO memberDTO) {
 		sqlSession.insert("member.join",memberDTO);
