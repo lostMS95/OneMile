@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
+<!-- 
+	마이바티스 중앙 제어 설정
+	- 마이바티스 중앙 제어 장치인 SqlSessionFactory가 구동하기 위해 알아야할 정보들을 작성
+ -->
 <!DOCTYPE configuration
  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
@@ -27,9 +31,9 @@
 			(ex) <package name="com.kh.spring10.entity"/>
 	-->
 	<typeAliases>
-		<package name="com.kh.onemile.entity"/>
+			<package name="com.kh.onemile.entity"/>
+			<package name="com.kh.onemile.vo"/>
 	</typeAliases>
 	
 	
-
 </configuration>
