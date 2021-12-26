@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.onemile.entity.member.MemberDTO;
 import com.kh.onemile.repository.MemberDao;
+import com.kh.onemile.vo.MemberJoinVO;
 
 @Service
 public class MemberServiceImpl implements MemberService{
@@ -12,8 +13,8 @@ public class MemberServiceImpl implements MemberService{
 	private MemberDao memberDao;
 	//회원가입
 	@Override
-	public void join(MemberDTO memberDTO) {
-		memberDao.join(memberDTO);
+	public void join(MemberJoinVO memberJoinVO) {
+		memberDao.join(memberJoinVO);
 	}
 	//로그인
 	@Override
