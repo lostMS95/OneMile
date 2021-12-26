@@ -19,6 +19,7 @@ import com.kh.onemile.repository.CertiDao;
 import com.kh.onemile.repository.MemberDao;
 import com.kh.onemile.service.email.EmailService;
 import com.kh.onemile.service.member.MemberService;
+import com.kh.onemile.vo.MemberJoinVO;
 
 @RequestMapping("/member")
 @Controller
@@ -27,20 +28,16 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService; 
 	@Autowired
-	private MemberDao memberDao;
-	@Autowired
 	private EmailService emailService;
-	@Autowired
-	private CertiDao certiDao;
-	
+
 	//프로필 없는 회원가입
 	@GetMapping("/join")
 	public String getJoin() {
 		return "member/join";
 	}
 	@PostMapping("/join")
-	public String postJoin(@ModelAttribute MemberDTO memberDTO) {
-		memberService.join(memberDTO);
+	public String postJoin(@ModelAttribute MemberJoinVO memberJoinVO) {
+		memberService.join(memberJoinVO);
 		return "redirect:join_success";
 	}
 	@RequestMapping("/join_success")
@@ -119,22 +116,22 @@ public class MemberController {
 		model.addAttribute("email", email);
 		return "member/check";
 	}
-	//이메일 체크
-	@PostMapping("/email_check")
-	public String check(@ModelAttribute CertiDTO certiDTO) {
-		boolean success = certiDao.check(certiDTO);
-		if(success) {
-			return "redirect:/success";//절대경로
-//			return "redirect:success";//상대경로
-		}
-		else {
-			return "redirect:/?error";
-		}
-	}
-	
-	@GetMapping("/success")
-	public String success() {
-		return "success";
-	}
+//	//이메일 체크
+//	@PostMapping("/email_check")
+//	public String check(@ModelAttribute CertiDTO certiDTO) {
+//		boolean success = certiDao.check(certiDTO);
+//		if(success) {
+//			return "redirect:/success";//절대경로
+////			return "redirect:success";//상대경로
+//		}
+//		else {
+//			return "redirect:/?error";
+//		}
+//	}
+//	
+//	@GetMapping("/success")
+//	public String success() {
+//		return "success";
+//	}
 	
 }

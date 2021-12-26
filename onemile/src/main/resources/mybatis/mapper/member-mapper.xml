@@ -17,24 +17,23 @@
 <mapper namespace="member">
 	
 	<!-- 단일조회(로그인) -->
-	<select id="get" parameterType="String" resultType="MemberDTO">
+	<select id="get" parameterType="String" resultType="MemberJoinVO">
 		select * from member where email = #{email}
-
+	</select>
 	<!-- 등록 -->
-	<insert id="insert" parameterType="MemberDto">
+	<insert id="join" parameterType="MemberDTO">
 		insert into member(
 			member_no, email, pw, nick,
 			phone,birth, mbti, intro, corona, gender
 		)
 		values(
-			member_seq.nextval, #{email}, #{pw}, #{nick}, 
-			#{phone}, #{birth}, #{mbti}, #{corona}, #{gender}
+			#{memberNo}, #{email}, #{pw}, #{nick}, 
+			#{phone}, #{birth}, #{mbti},#{intro}, #{corona}, #{gender}
 		)
 	</insert>
 
 	<select id="findId" parameterType="map" resultType="MemberDTO">
-		select * from member where nick = #{nick} and phone = #{phone} <!-- and 
-		substr(to_char(birth), 0, 10) = #{birth}; -->
+		select * from member where nick = #{nick} and phone = #{phone} 
 	</select>
 
 </mapper>

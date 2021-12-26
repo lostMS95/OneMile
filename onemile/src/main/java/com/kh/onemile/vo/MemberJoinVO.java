@@ -1,6 +1,7 @@
 package com.kh.onemile.vo;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -12,18 +13,17 @@ public class MemberJoinVO {
 	private int memberNo;
 	private String email;
 	private String pw;
-	private String nickName;
+	private String nick;
 	private String phone;
 	private String gender;
-	private Date date;
+	private Date birth;
 	private String grade;
 	private Date joinDate;
 	private String mbti;
-	private String Intro;
+	private String intro;
 	private String corona;
 	private Date nickModi;
 	private String exitYN;
 	private Date exitDate;
-	
-	private MultipartFile attach;
+	private List<MultipartFile> attach;
 }
