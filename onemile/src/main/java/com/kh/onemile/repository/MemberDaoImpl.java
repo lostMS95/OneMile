@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.onemile.entity.member.MemberDTO;
+import com.kh.onemile.vo.MemberJoinVO;
 
 @Repository
 public class MemberDaoImpl implements MemberDao{
@@ -17,8 +18,8 @@ public class MemberDaoImpl implements MemberDao{
 	
 	//회원가입
 	@Override
-	public void join(MemberDTO memberDTO) {
-		sqlSession.insert("member.join",memberDTO);
+	public void join(MemberJoinVO memberJoinVO) {
+		sqlSession.insert("member.join",memberJoinVO);
 	}
 	
 	//로그인

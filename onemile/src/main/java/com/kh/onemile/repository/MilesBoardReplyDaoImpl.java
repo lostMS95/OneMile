@@ -14,7 +14,7 @@ public class MilesBoardReplyDaoImpl implements MilesBoardReplyDao{
 	@Override
 	public void write(MilesBoardReplyDTO milesBoardReplyDto) {
 		sqlSession.insert("mr.insert", milesBoardReplyDto);
-	}
+	} 
 
 	@Override
 	public int getSeq() {
