@@ -19,8 +19,7 @@
 	<!-- 단일조회(로그인) -->
 	<select id="get" parameterType="String" resultType="MemberDTO">
 		select * from member where email = #{email}
-	</select>
-	
+
 	<!-- 등록 -->
 	<insert id="insert" parameterType="MemberDto">
 		insert into member(
@@ -32,9 +31,10 @@
 			#{phone}, #{birth}, #{mbti}, #{corona}, #{gender}
 		)
 	</insert>
-	
+
 	<select id="findId" parameterType="map" resultType="MemberDTO">
 		select * from member where nick = #{nick} and phone = #{phone} <!-- and 
 		substr(to_char(birth), 0, 10) = #{birth}; -->
 	</select>
+
 </mapper>
