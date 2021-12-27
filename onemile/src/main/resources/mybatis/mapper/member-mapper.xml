@@ -17,7 +17,8 @@
 <mapper namespace="member">
 	
 	<!-- 단일조회(로그인) -->
-	<select id="get" parameterType="String" resultType="MemberDTO">
+
+	<select id="get" parameterType="String" resultType="MemberJoinVO">
 		select * from member where email = #{email}
 	</select>
 	<!-- 등록 -->
@@ -32,8 +33,15 @@
 		)
 	</insert>
 
+	<!-- 아이디찾기 -->
 	<select id="findId" parameterType="map" resultType="MemberDTO">
-		select * from member where nick = #{nick} and phone = #{phone} 
+		select * from member where nick = #{nick} and phone = 
+	</select>
+				
+	<select id="memberNoByEmail" parameterType="String" resultType="int">
+	
+		select member_no from member where email = #{email}
+	
 	</select>
 
 </mapper>
