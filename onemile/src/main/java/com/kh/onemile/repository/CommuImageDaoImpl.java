@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.onemile.entity.image.CommuImageDTO;
+import com.kh.onemile.repository.image.CommuImageDao;
 @Repository
 public class CommuImageDaoImpl implements CommuImageDao{
 

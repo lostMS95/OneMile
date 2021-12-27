@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.onemile.entity.commu.CommuDTO;
+import com.kh.onemile.repository.commu.CommuDao;
 @Repository
 public class CommuDaoImpl implements CommuDao{
 

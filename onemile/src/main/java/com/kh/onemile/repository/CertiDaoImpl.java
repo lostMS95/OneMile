@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.onemile.entity.member.certi.CertiDTO;
+import com.kh.onemile.repository.certi.CertiDao;
 
 @Repository
 public class CertiDaoImpl implements CertiDao{
