@@ -1,4 +1,4 @@
-package com.kh.onemile.repository;
+package com.kh.onemile.repository.member;
 
 import java.util.HashMap;
 import java.util.Map;

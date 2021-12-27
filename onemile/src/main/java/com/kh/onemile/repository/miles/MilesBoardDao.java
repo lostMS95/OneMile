@@ -1,4 +1,4 @@
-package com.kh.onemile.repository;
+package com.kh.onemile.repository.miles;
 
 import com.kh.onemile.entity.miles.board.MilesBoardDTO;
 

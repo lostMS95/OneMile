@@ -12,8 +12,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.kh.onemile.service.member.MemberService;
-
 import lombok.extern.slf4j.Slf4j;
 
 @ContextConfiguration(locations = {
@@ -23,12 +21,12 @@ import lombok.extern.slf4j.Slf4j;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @Slf4j
-public class Test01 {
+public class SequenceTest {
 	@Autowired
 	private SqlSession sqlSession; 
 	
 	@Test
-	public void test() {
+	public void joinSequence() {
 		int result = sqlSession.selectOne("seq.get","mi_no");
 		System.out.println(result);
 		Map<String, Object> updateValue = new LinkedHashMap<String, Object>();

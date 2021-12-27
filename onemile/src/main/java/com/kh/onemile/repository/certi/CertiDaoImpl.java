@@ -1,4 +1,4 @@
-package com.kh.onemile.repository;
+package com.kh.onemile.repository.certi;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;

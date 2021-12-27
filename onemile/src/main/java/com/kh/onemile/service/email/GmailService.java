@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.onemile.entity.member.certi.CertiDTO;
-import com.kh.onemile.repository.CertiDao;
-import com.kh.onemile.repository.MemberDao;
+import com.kh.onemile.repository.certi.CertiDao;
+import com.kh.onemile.repository.member.MemberDao;
 import com.kh.onemile.util.RandomUtil;
 
 @Transactional //0 or 100? 

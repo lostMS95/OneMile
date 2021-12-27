@@ -1,4 +1,4 @@
-package com.kh.onemile.repository;
+package com.kh.onemile.repository.image;
 
 import com.kh.onemile.entity.image.CommuImageDTO;
 

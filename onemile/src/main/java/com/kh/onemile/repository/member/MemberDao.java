@@ -1,4 +1,4 @@
-package com.kh.onemile.repository;
+package com.kh.onemile.repository.member;
 
 import com.kh.onemile.entity.member.MemberDTO;
 import com.kh.onemile.vo.MemberJoinVO;

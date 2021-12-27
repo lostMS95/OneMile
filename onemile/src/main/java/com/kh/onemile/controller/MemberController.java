@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.onemile.entity.member.MemberDTO;
 import com.kh.onemile.entity.member.certi.CertiDTO;
-import com.kh.onemile.repository.CertiDao;
-import com.kh.onemile.repository.MemberDao;
+import com.kh.onemile.repository.certi.CertiDao;
+import com.kh.onemile.repository.member.MemberDao;
 import com.kh.onemile.service.email.EmailService;
 import com.kh.onemile.service.member.MemberService;
 import com.kh.onemile.vo.MemberJoinVO;

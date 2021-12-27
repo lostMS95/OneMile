@@ -1,4 +1,4 @@
-package com.kh.onemile.repository;
+package com.kh.onemile.repository.map;
 
 import com.kh.onemile.entity.map.MapDTO;
 
