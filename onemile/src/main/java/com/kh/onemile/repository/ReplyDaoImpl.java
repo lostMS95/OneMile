@@ -9,7 +9,7 @@ import com.kh.onemile.entity.reply.ReplyDTO;
 public class ReplyDaoImpl implements ReplyDao{
 
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 	@Override
 	public void write(ReplyDTO replyDto) {

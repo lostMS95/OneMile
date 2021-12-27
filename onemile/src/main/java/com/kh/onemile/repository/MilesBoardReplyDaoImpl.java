@@ -9,7 +9,7 @@ import com.kh.onemile.entity.miles.board.MilesBoardReplyDTO;
 public class MilesBoardReplyDaoImpl implements MilesBoardReplyDao{
 
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 	@Override
 	public void write(MilesBoardReplyDTO milesBoardReplyDto) {

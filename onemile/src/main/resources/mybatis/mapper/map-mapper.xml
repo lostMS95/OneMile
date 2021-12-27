@@ -10,9 +10,25 @@
 	</select>
 	
 	<!-- 등록하기 -->
-	<insert id="insert">
+	<insert id="insert" parameterType="mapDto">
 		insert into map value(
 			#{mapNo}, #{lat}, #{lon}, #{detailAddress}
 		)
 	</insert>
+	
+	<!-- 수정하기 -->
+	<update id="change" parameterType="mapDto">
+		update map
+		set
+			lat = #{lat},
+			lon = #{lon},
+			detail_address = #{detailAddress}
+		where
+			map_no = #{detailAddress}
+	</update>
+	
+	<!-- 단일조회 -->
+	<select id="get" parameterType="int" resultType="mapDTO">
+		select * from map where map_no = #{mapNo}
+	</select>
 </mapper>
