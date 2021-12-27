@@ -19,7 +19,7 @@ public class Sequence {
 		
 		return seqNum;
 	}
-	//시퀀스 증가하는 조회
+	//시퀀스 조회  & 증가하는 조회
 	public int joinSequence(String seq_name) {
 		int seqNum = sqlSession.update("seq.get", seq_name);
 		increaseSequence(seq_name, seqNum);
