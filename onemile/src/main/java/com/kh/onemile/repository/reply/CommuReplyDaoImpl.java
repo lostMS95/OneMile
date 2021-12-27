@@ -9,7 +9,7 @@ import com.kh.onemile.entity.commu.CommuReplyDTO;
 public class CommuReplyDaoImpl implements CommuReplyDao{
 
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 	@Override
 	public void write(CommuReplyDTO commuReplyDto) {

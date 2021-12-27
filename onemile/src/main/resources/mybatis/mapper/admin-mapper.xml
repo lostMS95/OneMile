@@ -11,7 +11,7 @@
 	<delete id="deniedApproveMember" parameterType="int">
 		delete from approve where member_no=#{memerNo} 
 	</delete>
-	<update id="dlatl"  parameterType="ApproveDTO">
+	<update id="regApproveMember2"  parameterType="ApproveDTO">
 		update member set APPROVE = 'Y'
 	</update>
 	
