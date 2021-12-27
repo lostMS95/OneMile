@@ -17,7 +17,6 @@ public class Sequence {
 	public int getSequence(String seq_name) {
 		int seqNum = sqlSession.update("seq.get", seq_name);
 		int numSeq = seqNum + 1;
-		System.out.println(seqNum);
 		Map<String, Object> updateValue = new HashMap<String, Object>();
 		updateValue.put("key", seq_name);
 		updateValue.put("value", numSeq);
