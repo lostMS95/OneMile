@@ -9,7 +9,7 @@ import com.kh.onemile.entity.image.CommuImageDTO;
 public class CommuImageDaoImpl implements CommuImageDao{
 
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 
 	@Override
 	public void insert(CommuImageDTO commuImageDto) {

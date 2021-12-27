@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AdminController {
 	
+	//회원 승인
 	@GetMapping("/approve")
 	public String approve() {
 		return "approve";
