@@ -50,7 +50,5 @@ public class MemberJoinTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		
 	}
 }
