@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.onemile.entity.member.MemberDTO;
+import com.kh.onemile.entity.member.certi.CertiDTO;
+import com.kh.onemile.repository.CertiDao;
 import com.kh.onemile.repository.MemberDao;
 import com.kh.onemile.vo.MemberJoinVO;
 
@@ -11,6 +13,9 @@ import com.kh.onemile.vo.MemberJoinVO;
 public class MemberServiceImpl implements MemberService{
 	@Autowired
 	private MemberDao memberDao;
+	@Autowired
+	private CertiDao certiDao;
+	
 	//회원가입
 	@Override
 	public void join(MemberJoinVO memberJoinVO) {
@@ -26,6 +31,12 @@ public class MemberServiceImpl implements MemberService{
 	public MemberDTO findId(MemberDTO memberDTO) {
 		return memberDao.findId(memberDTO);
 		
+		
+	}
+	//이메일 체크
+	@Override
+	public boolean emailCheck(CertiDTO certiDTO) {
+		return certiDao.check(certiDTO);
 		
 	}
 	

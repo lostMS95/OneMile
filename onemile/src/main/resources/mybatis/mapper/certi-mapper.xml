@@ -23,6 +23,10 @@
 	<select id="getNo" parameterType="String" resultType="int">
 		select member_no from member where email = #{email}
 	</select>
-
+	
+	<!-- 인증 성공 시 인증번호 삭제 -->
+	<delete id="delete" parameterType="String">
+		delete certi where 
+	</delete>
 	
 </mapper>

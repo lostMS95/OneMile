@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kh.onemile.entity.member.MemberDTO;
 import com.kh.onemile.entity.member.certi.CertiDTO;
 import com.kh.onemile.repository.CertiDao;
-import com.kh.onemile.repository.MemberDao;
 import com.kh.onemile.service.email.EmailService;
 import com.kh.onemile.service.member.MemberService;
 import com.kh.onemile.vo.MemberJoinVO;
@@ -107,9 +106,14 @@ public class MemberController {
 	@PostMapping("/find_pw")
 	public String cert(@RequestParam String email, Model model) {
 		emailService.sendCertificationNumber(email);
-		System.out.println("이메일 컨트롤러에서 아아아아앙      " + email);
+//		System.out.println("이메일 컨트롤러에서 아아아아앙      " + email);
 		model.addAttribute("email", email);
 		return "redirect:/";
 	}
-	
+//	@PostMapping("/finw_pw_check")
+//	public String check(@ModelAttribute CertiDTO certiDTO) {
+//		boolean success = memberService.emailCheck(certiDTO);
+//	
+//		
+//	}
 }

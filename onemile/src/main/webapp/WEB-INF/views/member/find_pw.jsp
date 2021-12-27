@@ -7,6 +7,6 @@
 </p>
 
 <form method="post">
-	<input type="email"  name="email" required>
-	<input type="submit" value="인증하기">
+	<input type="email"  name="email" required placeholder="가입한 이메일을 입력해주세요">
+	<input type="submit" value="인증요청">
 </form>
