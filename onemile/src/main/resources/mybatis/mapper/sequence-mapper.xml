@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="seq">
+	
+	<!-- 시퀀스 가져오기 -->
+	<select id="get" parameterType="String" resultType="int">
+		select seq_no from seq where seq_name = #{seq_name}
+	</select>
+	<!-- 시퀀스 업데이트 -->
+	<update id="increase"  parameterType="Map">
+		update seq set seq_no = #{seq_no}  where seq_name = #{seq_name}
+		
+	</update>
+	<!-- 댓글 등록 -->
+	<insert id="write">
+		insert into reply(
+			reply_no, member_no, content,
+			viewyn, reply_reciver
+		)
+		value(
+			#{replyNo},#{memberNo},#{content},
+			#{viewYn},#{replyReciver}
+		)
+	</insert>
+</mapper>
