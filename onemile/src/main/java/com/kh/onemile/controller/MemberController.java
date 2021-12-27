@@ -34,9 +34,11 @@ public class MemberController {
 	public String getJoin() {
 		return "member/join";
 	}
+	// 웹에서 안됨. Date 때문에?
 	@PostMapping("/join")
 	public String postJoin(@ModelAttribute MemberJoinVO memberJoinVO) {
 		memberService.join(memberJoinVO);
+		
 		return "redirect:join_success";
 	}
 	@RequestMapping("/join_success")
@@ -139,7 +141,7 @@ public class MemberController {
 			return "redirect:/";
 		}
 	}
-	//비밀번호 변경
+	//비밀번호 변경 -> 필터 안씌움.
 	@GetMapping("/edit_pw")
 	public String password() {
 		return "member/edit_pw";

@@ -3,6 +3,7 @@ package com.kh.onemile.vo;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
@@ -16,14 +17,19 @@ public class MemberJoinVO {
 	private String nick;
 	private String phone;
 	private String gender;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date birth;
 	private String grade;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH24:mm:ss")
 	private Date joinDate;
 	private String mbti;
 	private String intro;
 	private String corona;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH24:mm:ss")
 	private Date nickModi;
 	private String exitYN;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH24:mm:ss")
 	private Date exitDate;
 	private List<MultipartFile> attach;
+	
 }
