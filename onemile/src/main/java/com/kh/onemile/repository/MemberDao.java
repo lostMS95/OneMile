@@ -10,5 +10,6 @@ public interface MemberDao {
 	MemberDTO login(MemberDTO memberDto);
 	//아이디 찾기
 	MemberDTO findId(MemberDTO memberDTO);
-	
+	//
+	int getMemberNo(String email);
 }

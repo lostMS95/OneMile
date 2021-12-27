@@ -20,8 +20,8 @@
 		<input type="password" name="pw" required class="form-input">
 	</div>
 	<div class="row">
-		<label>비밀번호 확인</label>
-		<input type="password" class="form-input">
+		<label>비밀번호 확인 테스트중</label>
+		<input type="password"  class="form-input">
 	</div>
 	<div class="row">
 		<label>닉네임</label>
@@ -32,16 +32,8 @@
 		<input type="tel" name="phone" class="form-input">
 	</div>
 	<div class="row">
-		<label class="form-block">생년월일</label>
+		<label>생년월일</label>
 		<input type="date" name="birth" required class="form-input form-inline">
-	</div>
-	
-	<div class="row">
-		<label>프로필 이미지</label>
-		<input type="file" name="attach" accept="image/*" class="form-input">
-	</div>
-	<div class="row">
-		<input type="submit" value="가입" class="form-btn">
 	</div>
 	<div class="row" >
 			<label>성별</label>
@@ -53,21 +45,40 @@
 			</select>
 		</div>
 		<div class="row">
-		<textarea rows="10" cols="50">자기소개</textarea>
+		<textarea name="intro" rows="10" cols="50">자기소개</textarea>
 		</div>
+		
 		<div class="row" >
 			<label>MBTI</label>
 			<br>
 			<select name="mbti" style="width:22%">
-				<option value="남" selected align="center">INFP<option>
+				<option value="INFP" selected align="center">INFP<option>
 			</select>
 		</div>
+		<div class="row" >
+			<label>관심사 설정</label>
+			<br>
+			<select name="" style="width:22%">
+				<option selected align="center">운동/스포츠<option>
+			</select>
+		</div>
+		
 		<div class="row">
-		<label>백신접종상태</label>
-		<input type="file" name="attach" accept="image/*" class="form-input">
-	</div>
-	
+			<label>프로필 이미지</label>
+			<input type="file" name="attach" accept="image/*" class="form-input">
+		</div>
+		
+		
+		
+		<div class="row">
+			<label>백신접종상태</label>
+			<input type="file" name="attach" accept="image/*" class="form-input">
+		</div>
+		<div class="row">
+			<input type="submit" value="가입" class="form-btn">
+		</div>
 </div>
+
 	
 </form>
 

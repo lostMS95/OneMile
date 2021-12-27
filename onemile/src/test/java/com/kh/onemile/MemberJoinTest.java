@@ -37,9 +37,9 @@ public class MemberJoinTest {
 			SimpleDateFormat a1 =  new SimpleDateFormat("YYYY-MM-DD");
 			a  = a1.parse("2021-09-10");
 			memberDTO.setMemberNo(2);
-			memberDTO.setEmail("testUser1@naver.com");
+			memberDTO.setEmail("testUser2@naver.com");
 			memberDTO.setPw("testpassword1");
-			memberDTO.setNick("쿠쿠루삥빵뽕");
+			memberDTO.setNick("쿠쿠루삥빵");
 			memberDTO.setPhone("010-6485-0241");
 			memberDTO.setBirth(a);
 			memberDTO.setMbti("INFP");
