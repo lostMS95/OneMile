@@ -1,7 +1,5 @@
 package com.kh.onemile.entity.member;
 
-import java.util.Date;
-
 import lombok.Data;
 
 //관심 카테고리 DTO

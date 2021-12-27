@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.onemile.entity.admin.ApproveDTO;
-import com.kh.onemile.vo.MemberJoinVO;
 
 import lombok.extern.slf4j.Slf4j;
 
