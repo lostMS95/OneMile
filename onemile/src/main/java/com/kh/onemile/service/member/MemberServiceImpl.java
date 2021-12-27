@@ -48,6 +48,10 @@ public class MemberServiceImpl implements MemberService{
 		return certiDao.check(certiDTO);
 		
 	}
+	@Override
+	public boolean quit(String email, String pw) {
+		return memberDao.quit(email,pw);
+	}
 	
 	
 }

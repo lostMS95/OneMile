@@ -5,7 +5,7 @@
 <mapper namespace="certi">
 
 	
-	<insert id="insert" parameterType="CertiDto">
+	<insert id="insert" parameterType="CertiDTO">
 		insert into certi values(certi_seq.nextval,#{memberNo},#{email}, #{serial}, sysdate)
 	</insert>
 	
@@ -21,12 +21,23 @@
 	</select>  -->
 
 	<select id="getNo" parameterType="String" resultType="int">
-		select member_no from member where email = #{email}
+		select member_no from member where email = #{email} 
+	</select>
+	
+	<!-- 인증번호 검사(5분이내) -->
+	<select id="check" parameterType="CertiDto" resultType="CertiDto">
+		select * from certi 
+		where 
+		email = #{email} and serial = #{serial}
+		and
+		<![CDATA[
+		sysdate - send_date <= 5 / 24 / 60
+	    ]]>
 	</select>
 	
 	<!-- 인증 성공 시 인증번호 삭제 -->
 	<delete id="delete" parameterType="String">
-		delete certi where 
+		delete certi where email = #{email}
 	</delete>
 	
 </mapper>

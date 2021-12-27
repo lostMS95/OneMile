@@ -53,4 +53,10 @@ public class GmailService implements EmailService{
 		certiDao.insert(certiDTO);
 		
 	}
+
+	@Override
+	public boolean check(CertiDTO certiDTO) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

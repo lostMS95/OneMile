@@ -1,4 +1,4 @@
-package com.kh.onemile.controller;
+	package com.kh.onemile.controller;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -88,7 +88,28 @@ public class MemberController {
 		session.removeAttribute("grade");
 		return "redirect:/";
 	}
-
+	
+	//회원탈퇴
+	@GetMapping("/quit")
+	public String quit() {
+		return "member/quit";
+	}
+	@PostMapping("/quit")
+	public String quit(HttpSession session, @RequestParam String pw) {
+		String email = (String)session.getAttribute("logId");
+		
+		boolean result = memberService.quit(email,pw);
+		if(result) {
+			session.removeAttribute("logId");
+			session.removeAttribute("grade");
+			
+			return "redirect:quit_success";
+		}
+		else {
+			return "redirect:quit?error";
+		}
+	}
+	
 	// 아이디찾기
 	@GetMapping("/find_id")
 	private String findId() {
@@ -114,29 +135,35 @@ public class MemberController {
 
 	@PostMapping("/find_pw")
 	public String cert(@RequestParam String email, Model model) {
+		System.out.println("```````````5");
 		emailService.sendCertificationNumber(email);
+		System.out.println("```````````4");
 		model.addAttribute("email", email);
-		return "member/check";
+		System.out.println("```````````3");
+		return "member/emailCheck";
+		
 	}
 
 
 	//이메일 체크
-	@PostMapping("/email_check")
+	@PostMapping("/emailCheck")
 	public String check(@ModelAttribute CertiDTO certiDTO) {
-		boolean success = true;//certiDao.check(certiDTO);
+		System.out.println("```````````1");
+		boolean success = memberService.emailCheck(certiDTO);
+		System.out.println("```````````2");
 		if(success) {
-			return "redirect:/success";//절대경로
-//			return "redirect:success";//상대경로
+			return "redirect:/";//성공하면 비밀번호 변경페이지로
 		}
 		else {
-			return "redirect:/?error";
+			return "redirect:/";
 		}
 	}
 
-	
-	@GetMapping("/success")
-	public String success() {
-		return "success";
+	//비밀번호 변경
+	@GetMapping("/edit_pw")
+	public String password() {
+
+		return "member/edit_pw";
 	}
 
 
