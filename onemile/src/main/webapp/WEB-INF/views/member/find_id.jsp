@@ -10,7 +10,6 @@
         	<h2>아이디 찾기</h2>
     </div>
     
-    
 	<label>이름</label>
 	<div class="row">
 		<input type="text" name="nick" class="form-input"  placeholder="이름을 입력하세요." required autocomplete="off">
