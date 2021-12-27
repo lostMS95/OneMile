@@ -5,7 +5,7 @@
 <mapper namespace="certi">
 
 	
-	<insert id="insert" parameterType="CertiDto">
+	<insert id="insert" parameterType="CertiDTO">
 		insert into certi values(certi_seq.nextval,#{memberNo},#{email}, #{serial}, sysdate)
 	</insert>
 	
@@ -21,7 +21,7 @@
 	</select>  -->
 
 	<select id="getNo" parameterType="String" resultType="int">
-		select member_no from member where email = #{email}
+		select member_no from member where email = #{email} 
 	</select>
 
 	
