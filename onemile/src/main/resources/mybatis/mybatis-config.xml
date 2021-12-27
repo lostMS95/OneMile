@@ -32,8 +32,25 @@
 	-->
 	<typeAliases>
 			<package name="com.kh.onemile.entity"/>
+			<package name="com.kh.onemile.entity.admin"/>
+			<package name="com.kh.onemile.entity.admin.black"/>
+			<package name="com.kh.onemile.entity.commu"/>
+			<package name="com.kh.onemile.entity.image"/>
+			<package name="com.kh.onemile.entity.map"/>
+			<package name="com.kh.onemile.entity.member"/>
+			<package name="com.kh.onemile.entity.member.certi"/>
+			<package name="com.kh.onemile.entity.member.notification"/>
+			<package name="com.kh.onemile.entity.member.town"/>
+			<package name="com.kh.onemile.entity.miles"/>
+			<package name="com.kh.onemile.entity.miles.board"/>
+			<package name="com.kh.onemile.entity.product"/>
+			<package name="com.kh.onemile.entity.reply"/>
+			<package name="com.kh.onemile.entity.seq"/>
+			<package name="com.kh.onemile.entity.social"/>
+			<package name="com.kh.onemile.entity.social.chat"/>
 			<package name="com.kh.onemile.vo"/>
 	</typeAliases>
+
 	
 	
 </configuration>
