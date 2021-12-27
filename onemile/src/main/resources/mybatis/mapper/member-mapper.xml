@@ -5,7 +5,7 @@
 <mapper namespace="member">
 	
 	<!-- 단일조회(로그인) -->
-	<select id="get" parameterType="String" resultType="MemberJoinVO">
+	<select id="get" parameterType="MemberDTO" resultType="MemberJoinVO">
 		select * from member where email = #{email}
 	</select>
 

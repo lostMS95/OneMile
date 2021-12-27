@@ -51,10 +51,9 @@ public class MemberController {
 	@PostMapping("/login")
 	public String login(@ModelAttribute MemberDTO memberDTO, @RequestParam(required = false) String saveId,
 			HttpServletResponse response, HttpSession session) {
-		
 			MemberDTO findDTO = memberService.login(memberDTO);
-
-		if(findDTO != null) {
+			
+			if(findDTO != null) {
 			session.setAttribute("logId", findDTO.getEmail());
 			session.setAttribute("grade", findDTO.getGrade());
 
@@ -132,7 +131,7 @@ public class MemberController {
 	public String check(@ModelAttribute CertiDTO certiDTO) {
 		boolean success = memberService.emailCheck(certiDTO);
 		if(success) {
-			return "redirect:/edit_pw";//성공하면 비밀번호 변경페이지로
+			return "member/edit_pw";//성공하면 비밀번호 변경페이지로
 		}
 		else {
 			return "redirect:/";

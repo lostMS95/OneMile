@@ -29,12 +29,12 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private AdminService adminService;
 	
-	// 회원가입
+	//회원가입
 	@Override
 	public void join(MemberJoinVO memberJoinVO) {
 		
 		String origin = memberJoinVO.getPw();
-		// 비밀번호 암호화
+		//비밀번호 암호화
 		String encrypt = encoder.encode(origin);
 		memberJoinVO.setPw(encrypt);
 		//회원번호 시퀀스 가져오기.
