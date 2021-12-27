@@ -12,17 +12,14 @@ public class CertiDaoImpl implements CertiDao{
 	@Autowired
 	private SqlSession sqlSession;
 	
-
-	//디비에 저장
+	//DB에 저장
 	@Override
 	public void insert(CertiDTO certiDTO) {
 		sqlSession.insert("certi.insert", certiDTO);
-		
 	}
 
 	@Override
 	public boolean check(CertiDTO certiDTO) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 }

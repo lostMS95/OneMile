@@ -19,10 +19,16 @@ public class CertiDaoImpl implements CertiDao{
 		sqlSession.insert("certi.insert", certiDTO);
 		
 	}
-
+	//디비 비교
 	@Override
 	public boolean check(CertiDTO certiDTO) {
-		// TODO Auto-generated method stub
-		return false;
+		CertiDTO findDto = sqlSession.selectOne("certi.check",certiDTO);
+		if(findDto != null)  {
+			sqlSession.delete("certi.delete",certiDTO.getEmail());
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 }
