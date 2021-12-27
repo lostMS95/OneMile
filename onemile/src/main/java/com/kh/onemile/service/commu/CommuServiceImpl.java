@@ -11,11 +11,11 @@ import com.kh.onemile.entity.commu.CommuDTO;
 import com.kh.onemile.entity.image.CommuImageDTO;
 import com.kh.onemile.entity.image.ImageDTO;
 import com.kh.onemile.entity.map.MapDTO;
-import com.kh.onemile.repository.CommuDao;
-import com.kh.onemile.repository.CommuImageDao;
-import com.kh.onemile.repository.ImageDao;
-import com.kh.onemile.repository.MapDao;
-import com.kh.onemile.repository.MemberDao;
+import com.kh.onemile.repository.commu.CommuDao;
+import com.kh.onemile.repository.image.CommuImageDao;
+import com.kh.onemile.repository.image.ImageDao;
+import com.kh.onemile.repository.map.MapDao;
+import com.kh.onemile.repository.member.MemberDao;
 import com.kh.onemile.vo.CommuDetailVO;
 import com.kh.onemile.vo.CommuVO;
 

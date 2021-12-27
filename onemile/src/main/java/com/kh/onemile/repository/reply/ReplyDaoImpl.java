@@ -1,4 +1,4 @@
-package com.kh.onemile.repository;
+package com.kh.onemile.repository.reply;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import com.kh.onemile.entity.reply.ReplyDTO;
 public class ReplyDaoImpl implements ReplyDao{
 
 	@Autowired
-	private SqlSession sqlSession;
+	SqlSession sqlSession;
 	
 	@Override
 	public void write(ReplyDTO replyDto) {

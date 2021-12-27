@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin">
+
+	<!-- 승인 등록 -->
+	<insert id="regApproveMember"  parameterType="ApproveDTO">
+		insert into approve values(#{approveNo},#{memberNo})
+	</insert>
+	<delete id="deniedApproveMember" parameterType="int">
+		delete from approve where member_no=#{memerNo} 
+	</delete>
+	<update id="regApproveMember"  parameterType="ApproveDTO">
+		update member set APPROVE = 'Y'
+	</update>
+	
+</mapper>

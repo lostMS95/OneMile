@@ -1,7 +1,5 @@
 package com.kh.onemile.entity.miles;
 
-import java.util.Date;
-
 import lombok.Data;
 
 //마일즈 에 등록된 소셜 DTO

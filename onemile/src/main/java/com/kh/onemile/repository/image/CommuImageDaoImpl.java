@@ -1,10 +1,11 @@
-package com.kh.onemile.repository;
+package com.kh.onemile.repository.image;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.onemile.entity.image.CommuImageDTO;
+import com.kh.onemile.repository.image.CommuImageDao;
 @Repository
 public class CommuImageDaoImpl implements CommuImageDao{
 
@@ -33,3 +34,4 @@ public class CommuImageDaoImpl implements CommuImageDao{
 		return sqlSession.selectOne("commuImage.get", cmiNo);
 	}
 }
+
