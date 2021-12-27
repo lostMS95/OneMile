@@ -11,17 +11,6 @@
 	<!-- 시퀀스 업데이트 -->
 	<update id="increase"  parameterType="Map">
 		update seq set seq_no = #{seq_no}  where seq_name = #{seq_name}
-		
 	</update>
-	<!-- 댓글 등록 -->
-	<insert id="write">
-		insert into reply(
-			reply_no, member_no, content,
-			viewyn, reply_reciver
-		)
-		value(
-			#{replyNo},#{memberNo},#{content},
-			#{viewYn},#{replyReciver}
-		)
-	</insert>
+
 </mapper>

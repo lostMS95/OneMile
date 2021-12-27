@@ -15,5 +15,7 @@ public interface MemberDao {
 	MemberDTO findId(MemberDTO memberDTO);
 	//
 	int getMemberNo(String email);
+	
+	boolean quit(String email, String pw);
 
 }

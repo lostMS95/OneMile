@@ -6,8 +6,10 @@ import org.springframework.stereotype.Service;
 
 import com.kh.onemile.entity.member.MemberDTO;
 import com.kh.onemile.entity.member.certi.CertiDTO;
-import com.kh.onemile.repository.MemberDao;
+import com.kh.onemile.repository.admin.AdminDao;
 import com.kh.onemile.repository.certi.CertiDao;
+import com.kh.onemile.repository.member.MemberDao;
+import com.kh.onemile.service.admin.AdminService;
 import com.kh.onemile.util.Sequence;
 import com.kh.onemile.vo.MemberJoinVO;
 
@@ -16,6 +18,7 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberDao memberDao;
 	@Autowired
+
 	private CertiDao certiDao;
 	@Autowired
 	private Sequence seq;
@@ -23,19 +26,23 @@ public class MemberServiceImpl implements MemberService {
 	private AdminDao adminDao;
 	@Autowired
 	private PasswordEncoder encoder;
-
+	@Autowired
+	private AdminService adminService;
 	
-	//회원가입
+	// 회원가입
 	@Override
 	public void join(MemberJoinVO memberJoinVO) {
+		
 		String origin = memberJoinVO.getPw();
 		// 비밀번호 암호화
 		String encrypt = encoder.encode(origin);
 		memberJoinVO.setPw(encrypt);
+		//회원번호 시퀀스 가져오기.
 		int memNo = seq.joinSequence(SEQNAME);
 		memberJoinVO.setMemberNo(memNo);
+	
 		memberDao.join(memberJoinVO);
-		adminDao.approveMember(memNo);
+		adminService.regApproveMember(memNo);
 	}
 
 	//로그인
