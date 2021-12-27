@@ -17,7 +17,39 @@
 		)
 		values(
 			#{commuNo}, #{memberNo}, #{middleName},
-			#{title}, #{content}, #{viewyn}
+			#{title}, #{content}, #{viewYN}
 		)
 	</insert>
+	
+	<!-- 지도를 참조한 글쓰기 -->
+	<insert id="withMap" parameterType="commuDto">
+		insert into commu(
+			commu_no, member_no, middlename,
+			title, content, viewyn, map_no
+		)
+		values(
+			#{commuNo}, #{memberNo}, #{middleName},
+			#{title}, #{content}, #{viewYN}, #{mapNo}
+		)
+	</insert>
+	
+	<!-- 상세조회 -->
+	<select id="detail">
+		select * from commu where commu_no = #{commuNo}
+	</select>
+	
+	<!-- 수정하기 -->
+	<update id="change">
+		update commu set
+			title = #{titel}, content = #{content}
+		where
+			commu_no = #{commuNo}
+	</update>
+	
+	<!-- 숨김처리 -->
+	<update id="hide">
+		update comu set
+			viewyn = #{viewYN}
+		where commu_no = #{commuNo}
+	</update>
 </mapper>
