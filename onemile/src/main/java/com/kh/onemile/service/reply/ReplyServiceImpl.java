@@ -15,13 +15,13 @@ import com.kh.onemile.vo.ReplyVO;
 public class ReplyServiceImpl implements ReplyService{
 
 	@Autowired
-	ReplyDao replyDao;
+	private ReplyDao replyDao;
 	
 	@Autowired
-	MilesBoardReplyDao mbReplyDao;
+	private MilesBoardReplyDao mbReplyDao;
 	
 	@Autowired
-	CommuReplyDao commuReplyDao;
+	private CommuReplyDao commuReplyDao;
 	
 	@Override
 	public void write(ReplyVO replyVo) {
