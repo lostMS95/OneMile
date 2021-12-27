@@ -1,4 +1,4 @@
-package com.kh.onemile.repository;
+package com.kh.onemile.repository.member;
 
 import com.kh.onemile.entity.member.MemberDTO;
 import com.kh.onemile.vo.MemberJoinVO;
@@ -13,7 +13,7 @@ public interface MemberDao {
 
 	// 아이디 찾기
 	MemberDTO findId(MemberDTO memberDTO);
-
 	//
 	int getMemberNo(String email);
+
 }

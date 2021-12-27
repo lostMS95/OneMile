@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.onemile.entity.member.MemberDTO;
-import com.kh.onemile.repository.MemberDao;
+import com.kh.onemile.repository.member.MemberDao;
 import com.kh.onemile.util.Sequence;
 import com.kh.onemile.vo.MemberJoinVO;
 

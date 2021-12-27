@@ -1,4 +1,4 @@
-package com.kh.onemile.repository;
+package com.kh.onemile.repository.certi;
 
 import com.kh.onemile.entity.member.certi.CertiDTO;
 

@@ -62,14 +62,10 @@ public class MemberController {
 			session.setAttribute("grade", findDto.getGrade());
 
 			if(saveId != null) {//생성
-
 				Cookie c = new Cookie("saveId", findDto.getEmail());
 				c.setMaxAge(4 * 7 * 24 * 60 * 60);//4주
-				
 				response.addCookie(c);
-			}
-			else {
-				//삭제
+			}else {//삭제
 				Cookie c = new Cookie("saveId", findDto.getEmail());
 				c.setMaxAge(0);
 				response.addCookie(c);
@@ -113,13 +109,12 @@ public class MemberController {
 
 	@PostMapping("/find_pw")
 
-
 	public String cert(@RequestParam String email, Model model) {
 		emailService.sendCertificationNumber(email);
 		System.out.println("이메일 컨트롤러에서 아아아아앙      " + email);
 
 		model.addAttribute("email", email);
-		return "member/check";
+		return "redirect:/";
 	}
 
 	//이메일 체크
