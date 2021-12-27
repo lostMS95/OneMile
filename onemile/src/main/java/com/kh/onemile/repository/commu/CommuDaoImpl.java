@@ -1,16 +1,15 @@
-package com.kh.onemile.repository;
+package com.kh.onemile.repository.commu;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.onemile.entity.commu.CommuDTO;
-import com.kh.onemile.repository.commu.CommuDao;
 @Repository
 public class CommuDaoImpl implements CommuDao{
 
 	@Autowired
-	private SqlSession sqlSession;
+	SqlSession sqlSession;
 	
 	@Override
 	public void write(CommuDTO commuDto) {

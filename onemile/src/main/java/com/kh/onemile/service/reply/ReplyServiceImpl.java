@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 import com.kh.onemile.entity.commu.CommuReplyDTO;
 import com.kh.onemile.entity.miles.board.MilesBoardReplyDTO;
 import com.kh.onemile.entity.reply.ReplyDTO;
-import com.kh.onemile.repository.CommuReplyDao;
-import com.kh.onemile.repository.MilesBoardReplyDao;
-import com.kh.onemile.repository.ReplyDao;
+import com.kh.onemile.repository.reply.CommuReplyDao;
+import com.kh.onemile.repository.reply.MilesBoardReplyDao;
+import com.kh.onemile.repository.reply.ReplyDao;
 import com.kh.onemile.vo.ReplyVO;
 
 @Service

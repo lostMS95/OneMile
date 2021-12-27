@@ -5,7 +5,6 @@ import java.text.Format;
 import java.util.Random;
 
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 //무작위숫자 생성
 @Component

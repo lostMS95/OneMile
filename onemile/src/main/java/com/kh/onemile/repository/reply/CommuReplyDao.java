@@ -1,4 +1,4 @@
-package com.kh.onemile.repository;
+package com.kh.onemile.repository.reply;
 
 import com.kh.onemile.entity.commu.CommuReplyDTO;
 

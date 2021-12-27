@@ -5,12 +5,11 @@
 <mapper namespace="member">
 	
 	<!-- 단일조회(로그인) -->
-
 	<select id="get" parameterType="String" resultType="MemberJoinVO">
 		select * from member where email = #{email}
 	</select>
 
-	<!-- 등록 -->
+	<!-- 회원가입 -->
 	<insert id="join" parameterType="MemberDTO">
 		insert into member(
 			member_no, email, pw, nick,
@@ -21,16 +20,20 @@
 			#{phone}, #{birth}, #{mbti},#{intro}, #{corona}, #{gender}
 		)
 	</insert>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="quit" parameterType="String">
+		delete member where email = #{email}
+	</delete>
 
 	<!-- 아이디찾기 -->
 	<select id="findId" parameterType="map" resultType="MemberDTO">
 		select * from member where nick = #{nick} and phone = #{phone}
 	</select>
-				
+	
+	<!-- 이메일 인증 -->
 	<select id="memberNoByEmail" parameterType="String" resultType="int">
-	
 		select member_no from member where email = #{email}
-	
 	</select>
-
+	
 </mapper>

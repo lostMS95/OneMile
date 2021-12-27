@@ -10,11 +10,10 @@ public interface MemberService {
 	public void join(MemberJoinVO memberJoinVO);
 	//로그인
 	public MemberDTO login(MemberDTO memberDTO);
+	//회원탈퇴
+	public boolean quit(String email, String pw);
 	//아이디찾기
 	public MemberDTO findId(MemberDTO memberDTO);
 	//이메일 전송 체크
 	public boolean emailCheck(CertiDTO certiDTO);
-	//회원탈퇴
-	public boolean quit(String email, String pw);
-	
 }
