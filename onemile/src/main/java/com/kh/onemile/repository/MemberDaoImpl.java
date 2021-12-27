@@ -63,4 +63,15 @@ public class MemberDaoImpl implements MemberDao{
 	public int getMemberNo(String email) {
 		return sqlSession.selectOne("member.memberNoByEmail", email);
 	}
+	
+	//회원탈퇴
+	@Override
+	public boolean quit(String email, String pw) {
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setEmail(email);
+		memberDTO.setPw(pw);
+		int count = sqlSession.delete("member.quit",memberDTO);
+		return count > 0;
+		
+	}
 }
