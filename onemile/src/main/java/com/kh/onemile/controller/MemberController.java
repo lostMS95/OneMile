@@ -55,18 +55,18 @@ public class MemberController {
 	@PostMapping("/login")
 	public String login(@ModelAttribute MemberDTO memberDTO, @RequestParam(required = false) String saveId,
 			HttpServletResponse response, HttpSession session) {
-		MemberDTO findDto = memberService.login(memberDTO);
+		MemberDTO findDTO = memberService.login(memberDTO);
 
-		if (findDto != null) {
-			session.setAttribute("logId", findDto.getEmail());
-			session.setAttribute("grade", findDto.getGrade());
+		if (findDTO != null) {
+			session.setAttribute("logId", findDTO.getEmail());
+			session.setAttribute("grade", findDTO.getGrade());
 
 			if(saveId != null) {//생성
-				Cookie c = new Cookie("saveId", findDto.getEmail());
+				Cookie c = new Cookie("saveId", findDTO.getEmail());
 				c.setMaxAge(4 * 7 * 24 * 60 * 60);//4주
 				response.addCookie(c);
 			}else {//삭제
-				Cookie c = new Cookie("saveId", findDto.getEmail());
+				Cookie c = new Cookie("saveId", findDTO.getEmail());
 				c.setMaxAge(0);
 				response.addCookie(c);
 			}
