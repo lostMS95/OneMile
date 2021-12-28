@@ -57,7 +57,14 @@ public class MemberServiceImpl implements MemberService {
 	//로그인
 	@Override
 	public MemberDTO login(MemberDTO memberDTO) {
-		return memberDao.login(memberDTO);
+		MemberDTO loginMember = memberDao.login(memberDTO);
+		//암호화 비교
+		if(encoder.matches(memberDTO.getPw(), loginMember.getPw())) {
+			return loginMember;
+		}
+		else {
+			return null;
+		}
 	}
 	//회원탈퇴
 	@Override

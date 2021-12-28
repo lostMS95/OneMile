@@ -20,21 +20,17 @@ public class MilesServiceImpl implements MilesService{
 	@Override
 	public void create(MilesVO milesVo) {
 		int milesNo = seq.nextSequence(SEQID);
-		
+		milesVo.setMilesNo(milesNo);
+		System.out.println("생성한 마일즈 번호"+milesNo);
 		milesDao.create(milesVo);
 		
-		MilesDTO milesDTO = new MilesDTO();
-		milesDTO.setMilesNo(milesNo);
-		milesDTO.setSmallName(milesVo.getSmallName());
-		milesDTO.setMemberNo(milesVo.getMemberNo());
-		milesDTO.setAdNo(milesVo.getAdNo());
-		milesDTO.setName(milesVo.getName());
-		milesDTO.setContext(milesVo.getContext());
-		milesDTO.setArea(milesVo.getArea());
-		
-		
-		
-		
+		/*
+		 * MilesDTO milesDTO = new MilesDTO(); milesDTO.setMilesNo(milesNo);
+		 * milesDTO.setSmallName(milesVo.getSmallName());
+		 * milesDTO.setMemberNo(milesVo.getMemberNo());
+		 * milesDTO.setAdNo(milesVo.getAdNo()); milesDTO.setName(milesVo.getName());
+		 * milesDTO.setContext(milesVo.getContext());
+		 * milesDTO.setArea(milesVo.getArea());
+		 */
 	}
-	
 }

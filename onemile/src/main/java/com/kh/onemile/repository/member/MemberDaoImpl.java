@@ -26,14 +26,7 @@ public class MemberDaoImpl implements MemberDao{
 	//로그인
 	@Override
 	public MemberDTO login(MemberDTO memberDTO) {
-		MemberDTO findDTO = sqlSession.selectOne("member.get",memberDTO.getEmail());
-		//암호화 비교
-		if(findDTO != null && encoder.matches(memberDTO.getPw(), findDTO.getPw())) {
-			return findDTO;
-		}
-		else {
-			return null;
-		}
+		return sqlSession.selectOne("member.get",memberDTO.getEmail());
 	}
 	//아이디 찾기
 	@Override

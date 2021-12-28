@@ -59,6 +59,7 @@ public class MemberController {
 			session.setAttribute("logId", findDTO.getEmail());
 			session.setAttribute("nick", findDTO.getNick());
 			session.setAttribute("grade", findDTO.getGrade());
+			session.setAttribute("logNo", findDTO.getMemberNo());
 			
 			if(saveId != null) {//생성
 				Cookie c = new Cookie("saveId", findDTO.getEmail());
@@ -81,6 +82,8 @@ public class MemberController {
 		session.removeAttribute("logId");
 		session.removeAttribute("nick");
 		session.removeAttribute("grade");
+		session.removeAttribute("logNo");
+		
 		return "redirect:/";
 	}
 	

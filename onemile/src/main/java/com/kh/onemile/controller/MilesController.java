@@ -1,5 +1,7 @@
 package com.kh.onemile.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +24,11 @@ public class MilesController {
 		return "miles/create";
 	}
 	@PostMapping("/create")
-	public String create(@ModelAttribute MilesVO milesVo) {
+	public String create(@ModelAttribute MilesVO milesVo,
+			HttpSession session) {
+		int writer =(int) session.getAttribute("logNo");
+		milesVo.setMemberNo(writer);
+		
 		milesService.create(milesVo);
 		return "redirect:/";
 	}
