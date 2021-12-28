@@ -16,4 +16,6 @@ public interface MemberService {
 	public MemberDTO findId(MemberDTO memberDTO);
 	//이메일 전송 체크
 	public boolean emailCheck(CertiDTO certiDTO);
+	//닉네임
+	public String getNick(int memberNo);
 }

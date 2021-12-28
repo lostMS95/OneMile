@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.kh.onemile.entity.commu.CommuDTO;
 import com.kh.onemile.entity.map.MapDTO;
 import com.kh.onemile.entity.social.SocialDTO;
+import com.kh.onemile.repository.image.SocialImageDao;
 import com.kh.onemile.repository.map.MapDao;
 import com.kh.onemile.repository.member.MemberDao;
 import com.kh.onemile.repository.social.SocialDao;
@@ -60,26 +62,49 @@ public class SocialServiceImpl implements SocialService{
 	}
 
 	//소셜링 디테일
-//	@Override
-//	public SocialVO detail(int socialNo) {
-//		
-//	}
+	@Override
+	public SocialVO detail(int socialNo) {
+		SocialDTO socialDto = new SocialDTO();
+		socialDto = socialDao.detail(socialNo);
+		
+		SocialVO socialVo = new SocialVO();
+		
+		socialVo.setSocialNo(socialNo);
+		
+		int memberNo = socialDto.getMemberNo();
+//		MemberDTO memberDto = new MemberDTO();
+//		memberDto = memberDao.getNick(memberNo);
+//		commuVo.setNick(memberDto.getNick());
+			
+		int mapNo = socialDto.getMapNo();
+		
+		MapDTO mapDto = new MapDTO();
+		mapDto = mapDao.get(mapNo);
+		
+		socialVo.setLat(mapDto.getLat());
+		socialVo.setLon(mapDto.getLon());
+		socialVo.setDetailaddress(mapDto.getDetailaddress());
+		socialVo.setStratDate(socialDto.getStartDate());
+		
+		socialVo.setAdNo(socialDto.getAdNo());
+		socialVo.setContext(socialDto.getContext());
+		socialVo.setEndDate(socialDto.getEndDate());
+		socialVo.setMemberNo(memberNo);
+		socialVo.setName(socialDto.getName());
+		socialVo.setSmalltype(socialDto.getSmallType());
+		socialVo.setType(socialDto.getType());
+		return socialVo;
+	}
 
 	@Override
 	public List<SocialDTO> list() {
-		// TODO Auto-generated method stub
-		return null;
+		List<SocialDTO> list = socialDao.list();
+		return list;
 	}
 
 	@Override
 	public void changeSocial(SocialVO socialVo) {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public SocialVO detail(int socialNo) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

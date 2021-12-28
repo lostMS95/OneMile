@@ -19,7 +19,7 @@
 	
 	<!-- 단일조회 -->
 	<select id="getCmi" parameterType="int" resultType="CommuImageDTO">
-		select * from cmi where cmi_no = #{cmiNo}
+		select * from cmi where image_no = #{imageNo}
 	</select>
 	
 	<!-- 삭제하기 -->

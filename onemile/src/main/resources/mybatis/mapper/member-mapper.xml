@@ -33,5 +33,10 @@
 	<select id="memberNoByEmail" parameterType="String" resultType="int">
 		select member_no from member where email = #{email}
 	</select>
+	
+	<!-- 아이디찾기 -->
+	<select id="getNick" parameterType="int" resultType="String">
+		select nick from member where member_no = #{memberNo}
+	</select>
 
 </mapper>

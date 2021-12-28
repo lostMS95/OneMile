@@ -2,6 +2,8 @@ package com.kh.onemile.vo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 @Data
@@ -10,6 +12,7 @@ public class ReplyVO {
 	private int replyReceiverNo; //댓글 받는 사람
 	
 	private String content; //댓글 내용
+	@DateTimeFormat(pattern="YYYY-MM-DD HH24:mm:ss")
 	private Date regDate ; //댓글 작성시간
 	private String viewYN; //댓글 숨김여부
 	

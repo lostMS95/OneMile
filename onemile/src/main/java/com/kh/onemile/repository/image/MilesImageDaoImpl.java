@@ -22,4 +22,9 @@ public class MilesImageDaoImpl implements MilesImageDao{
 		int count = sqlSession.delete("mi.deleteImage", miNo);
 		return count > 0;
 	}
+
+	@Override
+	public MilesImageDTO get(int imageNo) {
+		return sqlSession.selectOne("mi.get", imageNo);
+	}
 }

@@ -14,4 +14,8 @@
 			#{crpNo}, #{replyNo}, #{commuNo}
 		)
 	</insert>
+	
+	<select id="get">
+		select * from crp where commu_no = #{commuNo}
+	</select>
 </mapper>
