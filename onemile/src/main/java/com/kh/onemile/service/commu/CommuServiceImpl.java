@@ -74,7 +74,7 @@ public class CommuServiceImpl implements CommuService{
 			mapDao.regMap(mapDto);
 			commuDto.setMapNo(mapNo);
 			
-			commuDao.withMap(commuDto);
+			commuDao.write(commuDto);
 		}else {
 			//게시글 작성
 			commuDao.write(commuDto);
@@ -142,7 +142,7 @@ public class CommuServiceImpl implements CommuService{
 			mapDao.regMap(mapDto);
 			commuDto.setMapNo(mapNo);
 			
-			commuDao.withMap(commuDto);
+			commuDao.write(commuDto);
 		}else {
 			//게시글 작성
 			commuDao.write(commuDto);

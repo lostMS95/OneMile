@@ -37,11 +37,6 @@ public class CommuDaoImpl implements CommuDao{
 	}
 
 	@Override
-	public void withMap(CommuDTO commuDto) {
-		sqlSession.insert("commu.withMap", commuDto);
-	}
-
-	@Override
 	public List<CommuDTO> menuList(String middleName) {
 		return sqlSession.selectList("commu.menuList", middleName);
 	}
