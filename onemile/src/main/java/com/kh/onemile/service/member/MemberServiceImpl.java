@@ -50,9 +50,6 @@ public class MemberServiceImpl implements MemberService {
 		log.debug("가입한 회원번호   "+ memNo);
 		memberDao.join(memberJoinVO);
 		
-		//회원 승인 테이블 전송.
-		adminService.regApproveMember(memNo);
-		
 		return memNo;
 	}
 
