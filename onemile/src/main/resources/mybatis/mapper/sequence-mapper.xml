@@ -3,14 +3,14 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="seq">
-	
+
 	<!-- 시퀀스 가져오기 -->
-	<select id="get" parameterType="String" resultType="int">
-		select seq_no from seq where seq_name = #{seq_name}
+	<select id="getNext" parameterType="String" resultType="int">
+		select ${seq_id}.nextval from dual
 	</select>
-	<!-- 시퀀스 업데이트 -->
-	<update id="increase"  parameterType="Map">
-		update seq set seq_no = #{seq_no}  where seq_name = #{seq_name}
-	</update>
+		<!-- 시퀀스 가져오기 -->
+	<select id="getNow" parameterType="String" resultType="int">
+		select ${seq_id}.currval from dual
+	</select>	
 
 </mapper>

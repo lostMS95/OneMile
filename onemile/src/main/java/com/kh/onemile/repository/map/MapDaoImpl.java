@@ -9,7 +9,7 @@ import com.kh.onemile.entity.map.MapDTO;
 public class MapDaoImpl implements MapDao{
 
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 	@Override
 	public void insert(MapDTO mapDto) {
@@ -20,5 +20,16 @@ public class MapDaoImpl implements MapDao{
 	public int getSeq() {
 		int seq = sqlSession.selectOne("map.sequence");
 		return seq;
+	}
+
+	@Override
+	public boolean change(MapDTO mapDto) {
+		int count = sqlSession.update("map.change",mapDto);
+		return count > 0;
+	}
+
+	@Override
+	public MapDTO get(int mapNo) {
+		return sqlSession.selectOne("map.get", mapNo);
 	}
 }

@@ -34,21 +34,19 @@ public class MemberJoinTest {
 			log.debug(memberDTO.toString());
 			Date a = new Date();
 			SimpleDateFormat a1 =  new SimpleDateFormat("YYYY-MM-DD");
-			a  = a1.parse("2021-12-31");
-			memberDTO.setMemberNo(1111);
-			memberDTO.setEmail("test111@test.com");
-			memberDTO.setPw("test12345");
-			memberDTO.setNick("테스트11111");
-			memberDTO.setPhone("010-2222-2222");
+			a  = a1.parse("2021-09-10");
+			memberDTO.setEmail("testUser2@naver.com");
+			memberDTO.setPw("testpassword2");
+			memberDTO.setNick("쿠쿠루삥빵111");
+			memberDTO.setPhone("010-0000-0001");
 			memberDTO.setBirth(a);
 			memberDTO.setMbti("INFP");
 			memberDTO.setIntro(" 1");
 			memberDTO.setCorona("Y");
-			memberDTO.setGender("남자");	
+			memberDTO.setGender("남자");
 			memberService.join(memberDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
-			
 		}
 	}
 }

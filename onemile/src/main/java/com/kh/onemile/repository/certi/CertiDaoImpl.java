@@ -3,7 +3,6 @@ package com.kh.onemile.repository.certi;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.kh.onemile.entity.member.certi.CertiDTO;
 import com.kh.onemile.repository.certi.CertiDao;
 
@@ -17,6 +16,7 @@ public class CertiDaoImpl implements CertiDao {
 	@Override
 	public void insert(CertiDTO certiDTO) {
 		sqlSession.insert("certi.insert", certiDTO);
+		
 	}
 	// DB 체크
 	@Override

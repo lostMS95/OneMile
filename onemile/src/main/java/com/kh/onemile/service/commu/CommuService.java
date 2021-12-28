@@ -1,11 +1,17 @@
 package com.kh.onemile.service.commu;
 
 import java.io.IOException;
+import java.util.List;
 
+import com.kh.onemile.entity.commu.CommuDTO;
+import com.kh.onemile.vo.CommuDetailVO;
 import com.kh.onemile.vo.CommuVO;
 
 public interface CommuService {
 	public void write(CommuVO commuVo) throws IllegalStateException, IOException;
-	public boolean change(CommuVO commuVo);
-	public boolean hide(String viewYN);
+	public void change(CommuVO commuVo) throws IllegalStateException, IOException;
+	public void hide(String viewYN);
+	public void deleteImage(int imageNo);
+	public List<CommuDTO> menuList(String middleName);
+	CommuDetailVO detail(int commuNo) throws IOException;
 }

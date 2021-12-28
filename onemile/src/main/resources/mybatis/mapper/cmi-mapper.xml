@@ -16,4 +16,19 @@
 			#{cmiNo}, #{imageNo}, #{commuNo}
 		)
 	</insert>
+	
+	<!-- 수정하기 -->
+	<update id="change" parameterType="commuImageDto" >
+		update cmi
+		set
+			image_no = #{imageNo},
+			commuNo = #{commuNo}
+		where
+			cmi_no = #{cmiNo}
+	</update>
+	
+	<!-- 단일조회 -->
+	<select id="get" parameterType="int" resultType="CommuImageDTO">
+		select * from cmi where cmi_no = #{cmiNo}
+	</select>
 </mapper>

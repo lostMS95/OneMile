@@ -34,8 +34,18 @@
 	</insert>
 	
 	<!-- 상세조회 -->
-	<select id="detail">
+	<select id="detail" parameterType="int" resultType="commuDTO">
 		select * from commu where commu_no = #{commuNo}
+	</select>
+	
+	<!-- 메뉴별 목록 조회 -->
+	<select id="menuList" parameterType="String">
+		select * from commu where middle_name = #{middlename}
+	</select>
+	
+	<!-- 전체 글 목록 조회 -->
+	<select id="list">
+		select * from commu
 	</select>
 	
 	<!-- 수정하기 -->
