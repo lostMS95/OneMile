@@ -1,6 +1,7 @@
 package com.kh.onemile.service.email;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import com.kh.onemile.util.RandomUtil;
 
 @Transactional
 @Service
+@Qualifier("gmail")
 public class GmailService implements EmailService{
 	
 	@Autowired
@@ -34,7 +36,6 @@ public class GmailService implements EmailService{
 		
 		//회원번호 1개 가져오기
 		int memberNo = memberDao.getMemberNo(email);
-		
 		//실제 이메일 발송 부분
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setTo(email);

@@ -12,20 +12,14 @@ public class MapDaoImpl implements MapDao{
 	private SqlSession sqlSession;
 	
 	@Override
-	public void insert(MapDTO mapDto) {
-		sqlSession.insert("map.insert", mapDto);
+	public void regMap(MapDTO mapDto) {
+		sqlSession.insert("map.regMap", mapDto);
 	}
 
 	@Override
 	public int getSeq() {
 		int seq = sqlSession.selectOne("map.sequence");
 		return seq;
-	}
-
-	@Override
-	public boolean change(MapDTO mapDto) {
-		int count = sqlSession.update("map.change",mapDto);
-		return count > 0;
 	}
 
 	@Override

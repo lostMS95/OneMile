@@ -1,8 +1,7 @@
-package com.kh.onemile.entity.member;
+package com.kh.onemile.entity.image;
 
 import lombok.Data;
 
-//회원이미지 DTO
 @Data
 public class MemberImageDTO {
 	private int meiNo;
