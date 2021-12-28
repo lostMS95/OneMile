@@ -55,8 +55,9 @@ public class MemberController {
 			
 			if(findDTO != null) {
 			session.setAttribute("logId", findDTO.getEmail());
+			session.setAttribute("nick", findDTO.getNick());
 			session.setAttribute("grade", findDTO.getGrade());
-
+			
 			if(saveId != null) {//생성
 				Cookie c = new Cookie("saveId", findDTO.getEmail());
 				c.setMaxAge(4 * 7 * 24 * 60 * 60);//4주
@@ -76,6 +77,7 @@ public class MemberController {
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("logId");
+		session.removeAttribute("nick");
 		session.removeAttribute("grade");
 		return "redirect:/";
 	}
@@ -91,8 +93,9 @@ public class MemberController {
 		boolean result = memberService.quit(email,pw);
 		if(result) {
 			session.removeAttribute("logId");
+			session.removeAttribute("nick");
 			session.removeAttribute("grade");
-			return "redirect:quit_success";
+			return "redirect:/";
 		}else{
 			return "redirect:quit?error";
 		}

@@ -70,7 +70,9 @@
                     <h1>원마일<h1>
                 </div>
                 <span>[<%=session.getAttribute("logId")%>]님</span>
+                <span>[<%=session.getAttribute("nick") %>]등급</span>
                 <span>[<%=session.getAttribute("grade") %>]등급</span>
+               
             </div>
 
         </header>

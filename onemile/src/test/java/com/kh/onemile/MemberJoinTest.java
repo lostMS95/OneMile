@@ -34,12 +34,12 @@ public class MemberJoinTest {
 			log.debug(memberDTO.toString());
 			Date a = new Date();
 			SimpleDateFormat a1 =  new SimpleDateFormat("YYYY-MM-DD");
-			a  = a1.parse("2021-09-10");
-			memberDTO.setMemberNo(2);
-			memberDTO.setEmail("onemiletest@naver.com");
-			memberDTO.setPw("test1234");
-			memberDTO.setNick("테스트용1");
-			memberDTO.setPhone("010-1111-1111");
+			a  = a1.parse("2021-12-31");
+			memberDTO.setMemberNo(1111);
+			memberDTO.setEmail("test111@test.com");
+			memberDTO.setPw("test12345");
+			memberDTO.setNick("테스트11111");
+			memberDTO.setPhone("010-2222-2222");
 			memberDTO.setBirth(a);
 			memberDTO.setMbti("INFP");
 			memberDTO.setIntro(" 1");
@@ -48,6 +48,7 @@ public class MemberJoinTest {
 			memberService.join(memberDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
+			
 		}
 	}
 }
