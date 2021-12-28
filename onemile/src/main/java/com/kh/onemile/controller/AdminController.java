@@ -12,7 +12,7 @@ import com.kh.onemile.service.admin.AdminService;
 @RequestMapping("/admin")
 @RestController
 public class AdminController {
-	@Autowired
+	@Autowired 
 	private AdminService adminService;
 	//회원 승인
 	@GetMapping("/approve")
