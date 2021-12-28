@@ -7,12 +7,12 @@
 	<insert id="create" parameterType="MilesVO">
 		insert into miles(
                 miles_no, smallname, member_no,ad_no,
-                name,context,area,viewyn
+                name,context,area
         )
         values(
-            1, '축구',24,1,
-            'kh모임','회식가야죠','서울특별시 영등포구','Y'
-        );
+            #{milesNo}, #{smallname},#{memberNo},#{adNo},
+            #{name},#{context},#{area}
+        )
 	</insert>
 	
 </mapper>
