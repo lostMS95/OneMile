@@ -10,15 +10,15 @@
 	</select>
 
 	<!-- 회원가입 -->
-	<insert id="join" parameterType="MemberDTO">
+	<insert id="join" parameterType="MemberJoinVO">
 		insert into member(
 			member_no, email, pw, nick,
 			phone,birth, mbti, intro, corona, gender
-		)
-		values(
+		) values(
 			#{memberNo}, #{email}, #{pw}, #{nick}, 
 			#{phone}, #{birth}, #{mbti},#{intro}, #{corona}, #{gender}
 		)
+
 	</insert>
 	
 	<!-- 회원탈퇴 -->

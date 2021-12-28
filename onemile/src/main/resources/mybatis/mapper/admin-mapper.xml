@@ -9,9 +9,9 @@
 		insert into approve values(#{approveNo},#{memberNo})
 	</insert>
 	<delete id="deniedApproveMember" parameterType="int">
-		delete from approve where member_no=#{memerNo} 
+		delete from approve where member_no=${memerNo} 
 	</delete>
-	<update id="regApproveMember2"  parameterType="ApproveDTO">
+	<update id="ApproveMember"  parameterType="ApproveDTO">
 		update member set APPROVE = 'Y'
 	</update>
 	

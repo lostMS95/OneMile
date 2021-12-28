@@ -55,25 +55,30 @@
 				<option value="INFP" selected align="center">INFP<option>
 			</select>
 		</div>
-		<div class="row" >
+	<!-- 	<div class="row" >
 			<label>관심사 설정</label>
 			<br>
-			<select name="" style="width:22%">
+			 <select name="" style="width:22%">
 				<option selected align="center">운동/스포츠<option>
-			</select>
+			</select> 
+		</div> -->
+		<div class="row" >
+			<label>코로나 접종여부</label>
+			<br>
+			<input type="checkbox" name="corona" value="Y" style="width:22%">
 		</div>
 		
-		<div class="row">
+		<!-- <div class="row">
 			<label>프로필 이미지</label>
 			<input type="file" name="attach" accept="image/*" class="form-input">
-		</div>
+		</div> -->
 		
 		
 		
-		<div class="row">
+		<!-- <div class="row">
 			<label>백신접종상태</label>
 			<input type="file" name="attach" accept="image/*" class="form-input">
-		</div>
+		</div> -->
 		<div class="row">
 			<input type="submit" value="가입" class="form-btn">
 		</div>
