@@ -10,12 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @Slf4j
 public class SetDefaut {
-	@Autowired
-	private MemberJoinVO memberJoinVO;
-	public MemberJoinVO setMemberCoronaDefault() {
-		if(memberJoinVO.getCorona().equals("")) {
-			memberJoinVO.setCorona("N");
-		}
-		return memberJoinVO;
+
+	public String setMemberCoronaDefault(String corona) {
+		return (corona!="")?"Y":"N";
 	}
 }

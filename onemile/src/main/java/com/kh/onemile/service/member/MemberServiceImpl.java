@@ -39,7 +39,7 @@ public class MemberServiceImpl implements MemberService {
 	// 회원가입
 	@Override
 	public void join(MemberJoinVO memberJoinVO) {
-		setDefault.setMemberCoronaDefault();
+		setDefault.setMemberCoronaDefault(memberJoinVO.getCorona());
 		// 비밀번호 암호화
 		String origin = memberJoinVO.getPw();
 		String encrypt = encoder.encode(origin);
