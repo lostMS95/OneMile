@@ -3,6 +3,7 @@
 
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 
+
 <h1>바디</h1>
 <h1>바디</h1>
 <h1>바디</h1>

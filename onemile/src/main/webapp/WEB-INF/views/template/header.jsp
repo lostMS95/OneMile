@@ -30,10 +30,12 @@
             flex-grow: 1;
         }
 	 </style>
-    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b89479d3bf4f702a0c7b99d5edfb1391&libraries=services" charset="utf-8"></script> 
+    <script src="${root}/resources/js/navigator.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha1.min.js"></script>
+    
     <!-- <script>
     	//form이 전송되면 input[type=password]가 자동 암호화되도록 설정
     	$(function(){
@@ -66,6 +68,7 @@
                 <div class="logo-wrapper">
                     <img src="${root}/resources/image/OM_logo.jpg">
                 </div>
+                <button id="confirmbtn">동네인증</button>
                 <div class="title-wrapper center">
                     <h1>원마일<h1>
                 </div>
