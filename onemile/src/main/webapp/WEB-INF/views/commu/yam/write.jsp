@@ -4,8 +4,8 @@
 
 <form action="write" method="post">
 	<input type="hidden" name="middlename" value="얌얌">
-	제목 <input type="text" name="title">
-	내용 <text name="content">
+	제목 <input type="text" name="title"><br>
+	내용 <textarea cols="100" rows="20" name="content"></textarea><br>
 	위도 <input type="text" name="lat">
 	경도 <input type="text" name="lon">
 	자세한 주소 <input type="text" name="detailAddress">

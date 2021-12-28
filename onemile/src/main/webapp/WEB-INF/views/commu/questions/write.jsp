@@ -4,8 +4,8 @@
 
 <form action="write" method="post">
 	<input type="hidden" name="middlename" value="질문">
-	제목 <input type="text" name="title">
-	내용 <text name="content">
+	제목 <input type="text" name="title"><br>
+	내용 <textarea cols="100" rows="20" name="content"></textarea><br>
 	파일 <input type="file" name="attach">
 </form>
 
