@@ -3,6 +3,7 @@ package com.kh.onemile.vo;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
@@ -18,9 +19,8 @@ public class CommuVO {
 	private String middleName;
 	private String title;
 	private String content;
+	@DateTimeFormat(pattern="YYYY-MM-DD HH24:mm:ss")
 	private Date regDate;
-	private int hit;
-	private String viewYN;
 	
 	//지도
 	private double lat;

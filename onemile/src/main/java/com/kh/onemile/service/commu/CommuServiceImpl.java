@@ -55,7 +55,6 @@ public class CommuServiceImpl implements CommuService{
 		commuDto.setMiddleName(commuVo.getMiddleName());
 		commuDto.setTitle(commuVo.getTitle());
 		commuDto.setContent(commuVo.getTitle());
-		commuDto.setViewYN(commuVo.getViewYN());
 		
 		double lat = commuVo.getLat();
 		double lon = commuVo.getLon();
@@ -124,7 +123,6 @@ public class CommuServiceImpl implements CommuService{
 		commuDto.setMiddleName(commuVo.getMiddleName());
 		commuDto.setTitle(commuVo.getTitle());
 		commuDto.setContent(commuVo.getTitle());
-		commuDto.setViewYN(commuVo.getViewYN());
 		
 		double lat = commuVo.getLat();
 		double lon = commuVo.getLon();
