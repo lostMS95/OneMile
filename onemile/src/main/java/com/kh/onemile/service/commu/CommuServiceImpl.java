@@ -22,7 +22,6 @@ import com.kh.onemile.vo.CommuVO;
 
 @Service
 public class CommuServiceImpl implements CommuService{
-	final String SEQID = "commu_seq";
 	
 	@Autowired
 	private CommuDao commuDao;
@@ -46,7 +45,7 @@ public class CommuServiceImpl implements CommuService{
 	public void write(CommuVO commuVo) throws IllegalStateException, IOException {
 		
 		//시퀀스 생성
-		int commuNo = seq.nextSequence(SEQID);
+		int commuNo = seq.nextSequence("commu_seq");
 		
 		//게시글 Dto 설정
 		CommuDTO commuDto = new CommuDTO();
@@ -80,35 +79,7 @@ public class CommuServiceImpl implements CommuService{
 			commuDao.write(commuDto);
 		}
 		
-		for(MultipartFile multipartFile : commuVo.getAttach()) {
-			if(!multipartFile.isEmpty()) {
-				ImageDTO imageDto = new ImageDTO();
-				
-				int seq = imageDao.getSeq();
-				
-				imageDto.setImageNo(seq);
-				imageDto.setUploadName(multipartFile.getOriginalFilename());
-				imageDto.setFileSize(multipartFile.getSize());
-				imageDto.setFileType(multipartFile.getContentType());
-				
-				imageDao.regImage(imageDto, multipartFile);
-				
-				CommuImageDTO commuImageDto = new CommuImageDTO();
-				
-				int cmiNo = commuImageDao.getSeq();
-				commuImageDto.setCmiNo(cmiNo);
-				commuImageDto.setCommuNo(commuNo);
-				commuImageDto.setImageNo(seq);
-				commuImageDao.regCmi(commuImageDto);
-			}
-		}
-	}
-	
-	//게시글 수정에서 이미지 삭제
-	@Override
-	public void deleteImage(int imageNo) {
-		//이미지 삭제 (비동기 처리 예정)
-		imageDao.deleteImage(imageNo);
+		
 	}
 	
 	@Override
@@ -146,29 +117,6 @@ public class CommuServiceImpl implements CommuService{
 		}else {
 			//게시글 작성
 			commuDao.write(commuDto);
-		}
-		
-		for(MultipartFile multipartFile : commuVo.getAttach()) {
-			if(!multipartFile.isEmpty()) {
-				ImageDTO imageDto = new ImageDTO();
-					
-				int seq = imageDao.getSeq();
-				
-				imageDto.setImageNo(seq);
-				imageDto.setUploadName(multipartFile.getOriginalFilename());
-				imageDto.setFileSize(multipartFile.getSize());
-				imageDto.setFileType(multipartFile.getContentType());
-					
-				imageDao.regImage(imageDto, multipartFile);
-				
-				CommuImageDTO commuImageDto = new CommuImageDTO();
-				
-				int cmiNo = commuImageDao.getSeq();
-				commuImageDto.setCmiNo(cmiNo);
-				commuImageDto.setCommuNo(commuNo);
-				commuImageDto.setImageNo(seq);
-				commuImageDao.regCmi(commuImageDto);
-			}
 		}
 	}
 

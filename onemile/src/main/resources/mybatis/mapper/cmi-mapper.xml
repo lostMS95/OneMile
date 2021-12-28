@@ -21,4 +21,9 @@
 	<select id="getCmi" parameterType="int" resultType="CommuImageDTO">
 		select * from cmi where cmi_no = #{cmiNo}
 	</select>
+	
+	<!-- 삭제하기 -->
+	<delete id="deleteImage">
+		delete cmi where image_no = #{imageNo}
+	</delete>
 </mapper>

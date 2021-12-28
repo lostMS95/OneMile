@@ -11,7 +11,6 @@ public interface CommuService {
 	public void write(CommuVO commuVo) throws IllegalStateException, IOException;
 	public void change(CommuVO commuVo) throws IllegalStateException, IOException;
 	public void hide(String viewYN);
-	public void deleteImage(int imageNo);
 	public List<CommuDTO> menuList(String middleName);
 	CommuDetailVO detail(int commuNo) throws IOException;
 }

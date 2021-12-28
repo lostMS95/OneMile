@@ -14,18 +14,18 @@ public class CommuImageDaoImpl implements CommuImageDao{
 
 	@Override
 	public void regCmi(CommuImageDTO commuImageDto) {
-		sqlSession.insert("commuImage.insert", commuImageDto);
-	}
-
-	@Override
-	public int getSeq() {
-		int seq = sqlSession.selectOne("commuImage.sequence");
-		return seq;
+		sqlSession.insert("cmi.insert", commuImageDto);
 	}
 
 	@Override
 	public CommuImageDTO get(int cmiNo) {
-		return sqlSession.selectOne("commuImage.get", cmiNo);
+		return sqlSession.selectOne("cmi.get", cmiNo);
+	}
+
+	@Override
+	public boolean deleteImage(int cmiNo) {
+		int count = sqlSession.delete("cmi.deleteImage", cmiNo);
+		return count > 0;
 	}
 }
 
