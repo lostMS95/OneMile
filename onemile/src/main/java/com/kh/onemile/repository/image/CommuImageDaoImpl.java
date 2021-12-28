@@ -13,7 +13,7 @@ public class CommuImageDaoImpl implements CommuImageDao{
 	private SqlSession sqlSession;
 
 	@Override
-	public void insert(CommuImageDTO commuImageDto) {
+	public void regCmi(CommuImageDTO commuImageDto) {
 		sqlSession.insert("commuImage.insert", commuImageDto);
 	}
 
@@ -21,12 +21,6 @@ public class CommuImageDaoImpl implements CommuImageDao{
 	public int getSeq() {
 		int seq = sqlSession.selectOne("commuImage.sequence");
 		return seq;
-	}
-
-	@Override
-	public boolean change(CommuImageDTO commuImageDto) {
-		int count = sqlSession.update("commuImage.change",commuImageDto);
-		return count > 0;
 	}
 
 	@Override

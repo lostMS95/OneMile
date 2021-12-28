@@ -10,25 +10,15 @@
 	</select>
 	
 	<!-- 사진 추가 -->
-	<insert id="insert" parameterType="commuImageDto">
+	<insert id="regCmi" parameterType="commuImageDto">
 		insert into cmi
 		values(
 			#{cmiNo}, #{imageNo}, #{commuNo}
 		)
 	</insert>
 	
-	<!-- 수정하기 -->
-	<update id="change" parameterType="commuImageDto" >
-		update cmi
-		set
-			image_no = #{imageNo},
-			commuNo = #{commuNo}
-		where
-			cmi_no = #{cmiNo}
-	</update>
-	
 	<!-- 단일조회 -->
-	<select id="get" parameterType="int" resultType="CommuImageDTO">
+	<select id="getCmi" parameterType="int" resultType="CommuImageDTO">
 		select * from cmi where cmi_no = #{cmiNo}
 	</select>
 </mapper>

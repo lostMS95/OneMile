@@ -3,8 +3,7 @@ package com.kh.onemile.repository.map;
 import com.kh.onemile.entity.map.MapDTO;
 
 public interface MapDao {
-	void insert(MapDTO mapDto);
+	void regMap(MapDTO mapDto);
 	int getSeq();
-	boolean change(MapDTO mapDto);
 	MapDTO get(int mapNo);
 }
