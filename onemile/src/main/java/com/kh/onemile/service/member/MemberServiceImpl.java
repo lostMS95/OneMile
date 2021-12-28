@@ -7,11 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.onemile.entity.member.MemberDTO;
 import com.kh.onemile.entity.member.certi.CertiDTO;
-import com.kh.onemile.repository.admin.AdminDao;
 import com.kh.onemile.repository.certi.CertiDao;
 import com.kh.onemile.repository.member.MemberDao;
 import com.kh.onemile.service.admin.AdminService;
-import com.kh.onemile.util.EncryptUtil;
 import com.kh.onemile.util.Sequence;
 import com.kh.onemile.util.SetDefaut;
 import com.kh.onemile.vo.MemberJoinVO;
