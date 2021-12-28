@@ -18,7 +18,7 @@ public class MilesVO {
 	//기본설정
 	private String name;
 	private String context;
-	private String location;
+	private String area;
 	private Date regDate;
 	private String viewYN;
 	

@@ -14,7 +14,7 @@ public class MilesDTO {
 	
 	private String name;
 	private String context;
-	private String location;
+	private String area;
 	private Date regDate;
 	private String viewYN;
 }

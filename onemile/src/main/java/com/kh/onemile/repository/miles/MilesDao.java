@@ -1,7 +1,7 @@
 package com.kh.onemile.repository.miles;
 
-import com.kh.onemile.entity.miles.MilesDTO;
+import com.kh.onemile.vo.MilesVO;
 
 public interface MilesDao {
-	void create(MilesDTO milesDTO);
+	void create(MilesVO milesVo);
 }

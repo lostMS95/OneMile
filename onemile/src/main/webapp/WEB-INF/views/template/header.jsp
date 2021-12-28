@@ -70,8 +70,9 @@
                     <h1>원마일<h1>
                 </div>
                 <span>[<%=session.getAttribute("logId")%>]님</span>
-                <span>[<%=session.getAttribute("nick") %>]등급</span>
+                <span>[<%=session.getAttribute("nick") %>]님</span>
                 <span>[<%=session.getAttribute("grade") %>]등급</span>
+                
                
             </div>
 
@@ -84,6 +85,7 @@
             		<c:when test="${login}">
             			<li><a href="${root}">홈으로</a></li>
 		            	<li><a href="${root}/board/list">게시판</a></li>
+		            	<li><a href="${root}/miles/create">마일즈생성(임시)</a></li>
 		            	<li class="flex-right">
 		            		<a href="#">회원메뉴</a>
 		            		<ul>
@@ -97,12 +99,14 @@
 		            				</c:otherwise>
 		            			</c:choose>
 				            	<li><a href="${root}/member/logout">로그아웃</a></li>
+				            	
 		            		</ul>
 		            	</li>
             		</c:when>
             		<c:otherwise>
 	            		<li><a href="${root}">홈으로</a></li>
 		            	<li><a href="${root}/board/list">게시판</a></li>
+		            	
 		            	<li class="flex-right">
 		            		<a href="${root}/member/login">로그인</a>
 		            		
