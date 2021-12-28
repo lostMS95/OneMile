@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.onemile.entity.commu.CommuDTO;
+import com.kh.onemile.vo.CommuDetailVO;
 @Repository
 public class CommuDaoImpl implements CommuDao{
 
@@ -41,7 +42,7 @@ public class CommuDaoImpl implements CommuDao{
 	}
 
 	@Override
-	public CommuDTO detail(int commuNo) {
-		return sqlSession.selectOne("commu.get", commuNo);
+	public CommuDetailVO detail(int commuNo) {
+		return sqlSession.selectOne("commu.detail", commuNo);
 	}
 }

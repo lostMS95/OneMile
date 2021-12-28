@@ -58,4 +58,10 @@ public class MemberDaoImpl implements MemberDao{
 		int count = sqlSession.delete("member.quit",memberDTO);
 		return count > 0;
 	}
+	
+	//커뮤 글 작성자, 소모임 모임장, 마일즈 모임장 표기를 위해 닉네임 가져오기
+	@Override
+	public String getNick(int memberNo) {
+		return sqlSession.selectOne("member.getNick", memberNo);
+	}
 }

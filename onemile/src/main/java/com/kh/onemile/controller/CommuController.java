@@ -3,14 +3,18 @@ package com.kh.onemile.controller;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.onemile.service.commu.CommuService;
+import com.kh.onemile.service.image.ImageService;
+import com.kh.onemile.service.reply.ReplyService;
 import com.kh.onemile.vo.CommuVO;
 
 @RequestMapping("/commu")
@@ -20,6 +24,12 @@ public class CommuController {
 	@Autowired
 	private CommuService commuService;
 	
+	@Autowired @Qualifier("commuImage")
+	private ImageService imageService;
+	
+	@Autowired
+	private ReplyService replyService;
+	
 	@GetMapping("/questions/write")
 	public String writeQ() {
 		return "commu/questions/write";
@@ -28,6 +38,8 @@ public class CommuController {
 	@PostMapping("/questions/write")
 	public String writeQ(@ModelAttribute CommuVO commuVo) throws IllegalStateException, IOException {
 		commuService.write(commuVo);
+		//1
+		//2
 		return "redirect:questions/list";
 	}
 	
@@ -37,9 +49,11 @@ public class CommuController {
 	}
 	
 	@RequestMapping("/questions/detail")
-	public String detailQ(CommuVO commuVo, Model model) throws IOException {
-		
-		model.addAttribute("read", commuService.detail(commuVo.getCommuNo()));
+	public String detailQ(@RequestParam int boardNo, Model model) throws IOException {
+		//조회 3번 (commu, reply, image)
+		model.addAttribute("commuDetailVO", commuService.detail(boardNo));
+		model.addAttribute("imageNoList", imageService.listByBoardNo(boardNo)); //boardNo로 imageNo list를 불러오는 거 만들기
+		model.addAttribute("replyVOList", replyService.listByBoardNo(boardNo)); //boardNo로 댓글 찾아주는 거 만들기
 		
 		return "commu/questions/detail";
 	}
@@ -61,10 +75,10 @@ public class CommuController {
 	}
 	
 	@RequestMapping("/boonsil/detail")
-	public String detailBoonsil(CommuVO commuVo, Model model) throws IOException {
-		
-		model.addAttribute("read", commuService.detail(commuVo.getCommuNo()));
-		
+	public String detailBoonsil(@RequestParam int boardNo, Model model) throws IOException {
+		model.addAttribute("commuDetailVO", commuService.detail(boardNo));
+		model.addAttribute("imageNoList", imageService.listByBoardNo(boardNo));
+		model.addAttribute("replyVOList", replyService.listByBoardNo(boardNo));
 		return "commu/boonsil/detail";
 	}
 	
@@ -85,10 +99,10 @@ public class CommuController {
 	}
 	
 	@RequestMapping("/funding/detail")
-	public String detailFunding(CommuVO commuVo, Model model) throws IOException {
-		
-		model.addAttribute("read", commuService.detail(commuVo.getCommuNo()));
-		
+	public String detailFunding(@RequestParam int boardNo, Model model) throws IOException {
+		model.addAttribute("commuDetailVO", commuService.detail(boardNo));
+		model.addAttribute("imageNoList", imageService.listByBoardNo(boardNo));
+		model.addAttribute("replyVOList", replyService.listByBoardNo(boardNo));
 		return "commu/funding/detail";
 	}
 }
