@@ -16,6 +16,7 @@ import com.kh.onemile.service.commu.CommuService;
 import com.kh.onemile.service.image.ImageService;
 import com.kh.onemile.service.reply.ReplyService;
 import com.kh.onemile.vo.CommuVO;
+import com.kh.onemile.vo.ImageVO;
 
 @RequestMapping("/commu")
 @Controller
@@ -36,10 +37,11 @@ public class CommuController {
 	}
 	
 	@PostMapping("/questions/write")
-	public String writeQ(@ModelAttribute CommuVO commuVo) throws IllegalStateException, IOException {
+	public String writeQ(@ModelAttribute CommuVO commuVo, @ModelAttribute ImageVO imageVo) throws IllegalStateException, IOException {
 		commuService.write(commuVo);
-		//1
-		//2
+		if(imageVo!=null) {
+			imageService.regImage(imageVo);
+		}
 		return "redirect:questions/list";
 	}
 	
@@ -64,8 +66,11 @@ public class CommuController {
 	}
 	
 	@PostMapping("/boonsil/write")
-	public String writeBoonsil(@ModelAttribute CommuVO commuVo) throws IllegalStateException, IOException {
+	public String writeBoonsil(@ModelAttribute CommuVO commuVo, @ModelAttribute ImageVO imageVo) throws IllegalStateException, IOException {
 		commuService.write(commuVo);
+		if(imageVo!=null) {
+			imageService.regImage(imageVo);
+		}
 		return "redirect:boonsil/list";
 	}
 	
@@ -88,8 +93,11 @@ public class CommuController {
 	}
 	
 	@PostMapping("/funding/write")
-	public String writeFunding(@ModelAttribute CommuVO commuVo) throws IllegalStateException, IOException {
+	public String writeFunding(@ModelAttribute CommuVO commuVo, @ModelAttribute ImageVO imageVo) throws IllegalStateException, IOException {
 		commuService.write(commuVo);
+		if(imageVo!=null) {
+			imageService.regImage(imageVo);
+		}
 		return "redirect:funding/list";
 	}
 	
