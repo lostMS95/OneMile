@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.onemile.entity.member.MemberDTO;
 import com.kh.onemile.entity.member.certi.CertiDTO;
+import com.kh.onemile.service.admin.AdminService;
 import com.kh.onemile.service.email.EmailService;
 import com.kh.onemile.service.member.MemberService;
 import com.kh.onemile.vo.MemberJoinVO;
@@ -27,17 +28,19 @@ public class MemberController {
 	private MemberService memberService;
 	@Autowired
 	private EmailService emailService;
-
-	//프로필 없는 회원가입
+	@Autowired
+	private AdminService adminService;
+	
 	@GetMapping("/join")
 	public String getJoin() {
 		return "member/join";
 	}
-	// 웹에서 안됨. Date 때문에?
+	//회원가입. 가입 후 회원 승인 테이블로 감.
 	@PostMapping("/join")
 	public String postJoin(@ModelAttribute MemberJoinVO memberJoinVO) {
-		memberService.join(memberJoinVO);
-		
+		int memNo = memberService.join(memberJoinVO);
+		//회원 승인 테이블 전송.
+		adminService.regApproveMember(memNo);
 		return "redirect:join_success";
 	}
 	@RequestMapping("/join_success")

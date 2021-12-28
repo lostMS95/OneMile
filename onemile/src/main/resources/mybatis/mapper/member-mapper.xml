@@ -33,5 +33,5 @@
 	<select id="memberNoByEmail" parameterType="String" resultType="int">
 		select member_no from member where email = #{email}
 	</select>
-	
+
 </mapper>
