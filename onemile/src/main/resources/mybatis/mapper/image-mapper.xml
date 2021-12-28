@@ -10,10 +10,20 @@
 	</select>
 	
 	<!-- 등록하기 -->
-	<insert id="insert">
+	<insert id="insertImage" parameterType="imageDto">
 		insert into image value(
 			#{imageNo}, #{uploadName}, #{saveName},
 			#{fileSize}, #{fileType}
 		)
 	</insert>
+	
+	<!-- 삭제하기 -->
+	<delete id="deleteImage">
+		delete image where image_no = #{imageNo}
+	</delete>
+	
+	<!-- 단일조회 -->
+	<select id="get" parameterType="int" resultType="imageDTO">
+		select * from image where image_no = #{imageNo}
+	</select>
 </mapper>
