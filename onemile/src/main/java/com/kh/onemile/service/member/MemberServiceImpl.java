@@ -31,14 +31,13 @@ public class MemberServiceImpl implements MemberService {
 	private Sequence seq;
 	@Autowired
 	private PasswordEncoder encoder;
-	@Autowired
-	private AdminService adminService;
+
 	@Autowired
 	private SetDefaut setDefault;
 	
 	// 회원가입
 	@Override
-	public void join(MemberJoinVO memberJoinVO) {
+	public int join(MemberJoinVO memberJoinVO) {
 		setDefault.setMemberCoronaDefault(memberJoinVO.getCorona());
 		// 비밀번호 암호화
 		String origin = memberJoinVO.getPw();
@@ -50,10 +49,8 @@ public class MemberServiceImpl implements MemberService {
 		memberJoinVO.setMemberNo(memNo);
 		log.debug("가입한 회원번호   "+ memNo);
 		memberDao.join(memberJoinVO);
-		
-		//회원 승인 테이블 전송.
-		adminService.regApproveMember(memNo);
-		
+
+		return memNo;
 	}
 
 	//로그인
