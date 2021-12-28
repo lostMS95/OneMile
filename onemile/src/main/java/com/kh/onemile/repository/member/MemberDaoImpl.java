@@ -5,8 +5,8 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
-
 import com.kh.onemile.entity.member.MemberDTO;
 import com.kh.onemile.vo.MemberJoinVO;
 
@@ -15,6 +15,9 @@ public class MemberDaoImpl implements MemberDao{
 	
 	@Autowired
 	private SqlSession sqlSession;
+	@Autowired
+	private PasswordEncoder encoder;
+	
 	//회원가입
 	@Override
 	public void join(MemberJoinVO memberJoinVO) {
@@ -22,9 +25,16 @@ public class MemberDaoImpl implements MemberDao{
 	}
 	//로그인
 	@Override
-	public MemberDTO login(MemberDTO memberDto) {
-		return sqlSession.selectOne("member.get", memberDto.getEmail());
+	public MemberDTO login(MemberDTO memberDTO) {
+		MemberDTO findDTO = sqlSession.selectOne("member.get",memberDTO.getEmail());
+		//암호화 비교
+		if(findDTO != null && encoder.matches(memberDTO.getPw(), findDTO.getPw())) {
+			return findDTO;
 		}
+		else {
+			return null;
+		}
+	}
 	//아이디 찾기
 	@Override
 	public MemberDTO findId(MemberDTO memberDTO) {

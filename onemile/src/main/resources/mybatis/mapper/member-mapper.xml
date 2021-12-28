@@ -5,10 +5,9 @@
 <mapper namespace="member">
 	
 	<!-- 단일조회(로그인) -->
-	<select id="get" parameterType="String" resultType="MemberJoinVO">
+	<select id="get" parameterType="MemberDTO" resultType="MemberDTO">
 		select * from member where email = #{email}
 	</select>
-
 	<!-- 회원가입 -->
 	<insert id="join" parameterType="MemberJoinVO">
 		insert into member(
@@ -18,7 +17,6 @@
 			#{memberNo}, #{email}, #{pw}, #{nick}, 
 			#{phone}, #{birth}, #{mbti},#{intro}, #{corona}, #{gender}
 		)
-
 	</insert>
 	
 	<!-- 회원탈퇴 -->

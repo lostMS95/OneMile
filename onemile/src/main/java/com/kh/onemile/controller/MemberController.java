@@ -56,13 +56,13 @@ public class MemberController {
 	@PostMapping("/login")
 	public String login(@ModelAttribute MemberDTO memberDTO, @RequestParam(required = false) String saveId,
 			HttpServletResponse response, HttpSession session) {
-		
 			MemberDTO findDTO = memberService.login(memberDTO);
-
-		if(findDTO != null) {
+			
+			if(findDTO != null) {
 			session.setAttribute("logId", findDTO.getEmail());
+			session.setAttribute("nick", findDTO.getNick());
 			session.setAttribute("grade", findDTO.getGrade());
-
+			
 			if(saveId != null) {//생성
 				Cookie c = new Cookie("saveId", findDTO.getEmail());
 				c.setMaxAge(4 * 7 * 24 * 60 * 60);//4주
@@ -82,6 +82,7 @@ public class MemberController {
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("logId");
+		session.removeAttribute("nick");
 		session.removeAttribute("grade");
 		return "redirect:/";
 	}
@@ -97,8 +98,9 @@ public class MemberController {
 		boolean result = memberService.quit(email,pw);
 		if(result) {
 			session.removeAttribute("logId");
+			session.removeAttribute("nick");
 			session.removeAttribute("grade");
-			return "redirect:quit_success";
+			return "redirect:/";
 		}else{
 			return "redirect:quit?error";
 		}
@@ -137,7 +139,7 @@ public class MemberController {
 	public String check(@ModelAttribute CertiDTO certiDTO) {
 		boolean success = memberService.emailCheck(certiDTO);
 		if(success) {
-			return "redirect:/edit_pw";//성공하면 비밀번호 변경페이지로
+			return "member/edit_pw";//성공하면 비밀번호 변경페이지로
 		}
 		else {
 			return "redirect:/";
