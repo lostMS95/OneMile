@@ -12,5 +12,5 @@ public interface CommuService {
 	public void change(CommuVO commuVo) throws IllegalStateException, IOException;
 	public void hide(String viewYN);
 	public List<CommuDTO> menuList(String middleName);
-	CommuDetailVO detail(int commuNo) throws IOException;
+	public CommuDetailVO detail(int commuNo) throws IOException;
 }

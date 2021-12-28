@@ -6,10 +6,9 @@ import com.kh.onemile.entity.commu.CommuDTO;
 
 public interface CommuDao {
 	void write(CommuDTO commuDto);
-	int getSeq();
 	boolean hide(String viewYN);
 	List<CommuDTO> menuList(String middleName);
 	List<CommuDTO> List();
-	CommuDTO get(int commuNo);
+	CommuDTO detail(int commuNo);
 	boolean changeCommu(CommuDTO commuDto);
 }

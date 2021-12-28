@@ -41,6 +41,7 @@ public class CommuServiceImpl implements CommuService{
 	@Autowired
 	private Sequence seq;
 
+	//글쓰기
 	@Override
 	public void write(CommuVO commuVo) throws IllegalStateException, IOException {
 		
@@ -82,6 +83,7 @@ public class CommuServiceImpl implements CommuService{
 		
 	}
 	
+	//수정하기
 	@Override
 	public void change(CommuVO commuVo) throws IllegalStateException, IOException {
 		
@@ -112,29 +114,28 @@ public class CommuServiceImpl implements CommuService{
 			
 			mapDao.regMap(mapDto);
 			commuDto.setMapNo(mapNo);
-			
-			commuDao.write(commuDto);
-		}else {
-			//게시글 작성
-			commuDao.write(commuDto);
 		}
+			commuDao.write(commuDto);
 	}
 
+	//숨김처리
 	@Override
 	public void hide(String viewYN) {
 		// TODO Auto-generated method stub
 	}
 
+	//카테고리별 리스트
 	@Override
 	public List<CommuDTO> menuList(String middleName) {
 		List<CommuDTO> list = commuDao.menuList(middleName);
 		return list;
 	}
 	
+	//상세조회
 	@Override
 	public CommuDetailVO detail(int commuNo) throws IOException {
 		CommuDTO commuDto = new CommuDTO();
-		commuDto = commuDao.get(commuNo);
+		commuDto = commuDao.detail(commuNo);
 		
 		CommuDetailVO commuVo = new CommuDetailVO();
 		commuVo.setContent(commuDto.getContent());

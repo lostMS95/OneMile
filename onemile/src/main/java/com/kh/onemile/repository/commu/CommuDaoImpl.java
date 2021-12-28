@@ -19,12 +19,6 @@ public class CommuDaoImpl implements CommuDao{
 	}
 
 	@Override
-	public int getSeq() {
-		int seq = sqlSession.selectOne("commu.sequence");
-		return seq;
-	}
-
-	@Override
 	public boolean changeCommu(CommuDTO commuDto) {
 		int count = sqlSession.update("commu.change", commuDto);
 		return count > 0;
@@ -47,7 +41,7 @@ public class CommuDaoImpl implements CommuDao{
 	}
 
 	@Override
-	public CommuDTO get(int commuNo) {
+	public CommuDTO detail(int commuNo) {
 		return sqlSession.selectOne("commu.get", commuNo);
 	}
 }
