@@ -69,6 +69,7 @@
                     <img src="${root}/resources/image/OM_logo.jpg">
                 </div>
                 <button id="confirmbtn">동네인증</button>
+                <input type="text" id="dong">
                 <div class="title-wrapper center">
                     <h1>원마일<h1>
                 </div>
