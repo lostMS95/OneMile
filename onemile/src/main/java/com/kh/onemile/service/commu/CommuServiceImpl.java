@@ -72,7 +72,7 @@ public class CommuServiceImpl implements CommuService{
 			mapDto.setMapNo(mapNo);
 			mapDto.setDetailaddress(commuVo.getDetailaddress());
 			
-			mapDao.insert(mapDto);
+			mapDao.regMap(mapDto);
 			commuDto.setMapNo(mapNo);
 			
 			commuDao.withMap(commuDto);
@@ -92,7 +92,7 @@ public class CommuServiceImpl implements CommuService{
 				imageDto.setFileSize(multipartFile.getSize());
 				imageDto.setFileType(multipartFile.getContentType());
 				
-				imageDao.insertImage(imageDto, multipartFile);
+				imageDao.regImage(imageDto, multipartFile);
 				
 				CommuImageDTO commuImageDto = new CommuImageDTO();
 				
@@ -100,7 +100,7 @@ public class CommuServiceImpl implements CommuService{
 				commuImageDto.setCmiNo(cmiNo);
 				commuImageDto.setCommuNo(commuNo);
 				commuImageDto.setImageNo(seq);
-				commuImageDao.insert(commuImageDto);
+				commuImageDao.regCmi(commuImageDto);
 			}
 		}
 	}
@@ -141,7 +141,7 @@ public class CommuServiceImpl implements CommuService{
 			mapDto.setMapNo(mapNo);
 			mapDto.setDetailaddress(commuVo.getDetailaddress());
 			
-			mapDao.insert(mapDto);
+			mapDao.regMap(mapDto);
 			commuDto.setMapNo(mapNo);
 			
 			commuDao.withMap(commuDto);
@@ -161,7 +161,7 @@ public class CommuServiceImpl implements CommuService{
 				imageDto.setFileSize(multipartFile.getSize());
 				imageDto.setFileType(multipartFile.getContentType());
 					
-				imageDao.insertImage(imageDto, multipartFile);
+				imageDao.regImage(imageDto, multipartFile);
 				
 				CommuImageDTO commuImageDto = new CommuImageDTO();
 				
@@ -169,7 +169,7 @@ public class CommuServiceImpl implements CommuService{
 				commuImageDto.setCmiNo(cmiNo);
 				commuImageDto.setCommuNo(commuNo);
 				commuImageDto.setImageNo(seq);
-				commuImageDao.insert(commuImageDto);
+				commuImageDao.regCmi(commuImageDto);
 			}
 		}
 	}
