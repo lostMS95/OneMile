@@ -10,7 +10,7 @@
 	</select>
 	
 	<!-- 등록하기 -->
-	<insert id="insertImage" parameterType="imageDto">
+	<insert id="regImage" parameterType="imageDto">
 		insert into image value(
 			#{imageNo}, #{uploadName}, #{saveName},
 			#{fileSize}, #{fileType}

@@ -2,6 +2,8 @@ package com.kh.onemile.vo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 @Data
 public class CommuDetailVO {
@@ -11,6 +13,7 @@ public class CommuDetailVO {
 	private String middleName;
 	private String title;
 	private String content;
+	@DateTimeFormat(pattern="YYYY-MM-DD HH24:mm:ss")
 	private Date regDate;
 	private int hit;
 	private String viewYN;

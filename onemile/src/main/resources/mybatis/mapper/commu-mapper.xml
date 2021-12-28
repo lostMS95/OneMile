@@ -12,24 +12,19 @@
 	<!-- 글쓰기 -->
 	<insert id="write" parameterType="commuDto">
 		insert into commu(
-			commu_no, member_no, middlename,
-			title, content, viewyn
+			commu_no, member_no, middleanme,
+			title, content, regdate, hit, viewwyn
+			<if test="mapNo>0">
+				, map_no,
+			</if>
 		)
 		values(
-			#{commuNo}, #{memberNo}, #{middleName},
-			#{title}, #{content}, #{viewYN}
-		)
-	</insert>
-	
-	<!-- 지도를 참조한 글쓰기 -->
-	<insert id="withMap" parameterType="commuDto">
-		insert into commu(
-			commu_no, member_no, middlename,
-			title, content, viewyn, map_no
-		)
-		values(
-			#{commuNo}, #{memberNo}, #{middleName},
-			#{title}, #{content}, #{viewYN}, #{mapNo}
+			#{commuNo}, #{memberNo},#{middlename},
+			#{title}, #{content},#{regdate},
+			#{hit}, #{viewYN}
+			<if test="mapNo>0">
+				, #{mapNo},
+			</if>
 		)
 	</insert>
 	
