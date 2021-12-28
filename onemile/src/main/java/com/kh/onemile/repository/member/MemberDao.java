@@ -7,7 +7,7 @@ public interface MemberDao {
 	// 회원가입
 	void join(MemberJoinVO memberJoinVO);
 	// 로그인
-	MemberDTO login(MemberDTO memberDto);
+	MemberDTO login(MemberDTO memberDTO);
 	//회원탈퇴
 	boolean quit(String email, String pw);
 	// 아이디 찾기

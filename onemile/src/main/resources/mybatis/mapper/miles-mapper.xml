@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="miles">
+	
+	<insert id="create" parameterType="MilesVO">
+		insert into miles(
+                miles_no, smallname, member_no,ad_no,
+                name,context,area
+        )
+        values(
+            #{milesNo}, #{smallname},#{memberNo},#{adNo},
+            #{name},#{context},#{area}
+        )
+	</insert>
+	
+</mapper>
