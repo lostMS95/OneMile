@@ -7,7 +7,7 @@ import com.kh.onemile.vo.MemberJoinVO;
 public interface MemberService {
 	
 	//회원가입
-	public void join(MemberJoinVO memberJoinVO);
+	public int join(MemberJoinVO memberJoinVO);
 	//로그인
 	public MemberDTO login(MemberDTO memberDTO);
 	//회원탈퇴

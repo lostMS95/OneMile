@@ -9,11 +9,14 @@ import com.kh.onemile.entity.reply.ReplyDTO;
 import com.kh.onemile.repository.reply.CommuReplyDao;
 import com.kh.onemile.repository.reply.MilesBoardReplyDao;
 import com.kh.onemile.repository.reply.ReplyDao;
+import com.kh.onemile.util.Sequence;
 import com.kh.onemile.vo.ReplyVO;
 
 @Service
 public class ReplyServiceImpl implements ReplyService{
 
+	final String SEQID = "reply_seq";
+	
 	@Autowired
 	private ReplyDao replyDao;
 	
@@ -23,11 +26,14 @@ public class ReplyServiceImpl implements ReplyService{
 	@Autowired
 	private CommuReplyDao commuReplyDao;
 	
+	@Autowired
+	private Sequence seq;
+	
 	@Override
 	public void write(ReplyVO replyVo) {
 		
 		//시퀀스 가져오기
-		int replyNo = replyDao.getSeq();
+		int replyNo = seq.nextSequence(SEQID);
 		
 		//댓글 테이블
 		ReplyDTO replyDto = new ReplyDTO();

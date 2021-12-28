@@ -27,7 +27,7 @@ public class ImageDaoImpl implements ImageDao{
 	}
 	
 	@Override
-	public void insertImage(ImageDTO imageDto, MultipartFile multipartFile) throws IllegalStateException, IOException {
+	public void regImage(ImageDTO imageDto, MultipartFile multipartFile) throws IllegalStateException, IOException {
 		
 		File target = new File(directory, String.valueOf(imageDto.getImageNo()));
 		multipartFile.transferTo(target);

@@ -14,11 +14,17 @@ public class AdminDaoImpl implements AdminDao{
 	@Autowired
 	private SqlSession sqlSession;
 	
+	@Override
 	public void regApproveMember(ApproveDTO approveDTO){
 		int result = sqlSession.insert("admin.regApproveMember", approveDTO);
 		log.debug(" result  "+ result);
 	}
+	@Override
 	public void deniedApproveMember(int memberNo) {
-		sqlSession.delete("admin.deleteMember", memberNo);
+		sqlSession.delete("admin.deniedApproveMember", memberNo);
+	}
+	@Override
+	public void approveMember(int memberNo) {
+		sqlSession.update("admin.approveMember", memberNo);
 	}
 }

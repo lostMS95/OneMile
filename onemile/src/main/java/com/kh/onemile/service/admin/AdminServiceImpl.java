@@ -2,6 +2,7 @@ package com.kh.onemile.service.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.onemile.entity.admin.ApproveDTO;
 import com.kh.onemile.repository.admin.AdminDao;
@@ -9,6 +10,7 @@ import com.kh.onemile.util.Sequence;
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
+@Transactional
 public class AdminServiceImpl implements AdminService{
 	String approveSeq ="approve_seq";
 	@Autowired
@@ -35,6 +37,13 @@ public class AdminServiceImpl implements AdminService{
 		
 		return approveDTO;
 	}
+	//회원 승인.
+	@Override
+	public void approveMember(int memberNo) {
+		adminDao.approveMember(memberNo);
+		deniedApproveMember(memberNo);
+	}
+	//회원 승인 거부.
 	@Override
 	public void deniedApproveMember(int memberNo) {
 		adminDao.deniedApproveMember(memberNo);

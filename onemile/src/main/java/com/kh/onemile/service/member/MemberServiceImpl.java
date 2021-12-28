@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.onemile.entity.member.MemberDTO;
 import com.kh.onemile.entity.member.certi.CertiDTO;
+import com.kh.onemile.repository.admin.AdminDao;
 import com.kh.onemile.repository.certi.CertiDao;
 import com.kh.onemile.repository.member.MemberDao;
 import com.kh.onemile.service.admin.AdminService;
@@ -30,15 +31,13 @@ public class MemberServiceImpl implements MemberService {
 	private Sequence seq;
 	@Autowired
 	private PasswordEncoder encoder;
-	@Autowired
-	private AdminService adminService;
+
 	@Autowired
 	private SetDefaut setDefault;
-
 	
-	//회원가입
+	// 회원가입
 	@Override
-	public void join(MemberJoinVO memberJoinVO) {
+	public int join(MemberJoinVO memberJoinVO) {
 		setDefault.setMemberCoronaDefault(memberJoinVO.getCorona());
 		// 비밀번호 암호화
 		String origin = memberJoinVO.getPw();
@@ -51,9 +50,9 @@ public class MemberServiceImpl implements MemberService {
 		log.debug("가입한 회원번호   "+ memNo);
 		memberDao.join(memberJoinVO);
 		
-		//회원 승인 테이블 전송.
-		adminService.regApproveMember(memNo);
+		return memNo;
 	}
+
 	//로그인
 	@Override
 	public MemberDTO login(MemberDTO memberDTO) {
@@ -66,12 +65,12 @@ public class MemberServiceImpl implements MemberService {
 			return null;
 		}
 	}
+	
 	//회원탈퇴
 	@Override
 	public boolean quit(String email, String pw) {
 		return memberDao.quit(email,pw);
 	}
-	
 	//아이디찾기
 	@Override
 	public MemberDTO findId(MemberDTO memberDTO) {
