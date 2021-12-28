@@ -86,7 +86,6 @@ public class MemberController {
 		session.removeAttribute("nick");
 		session.removeAttribute("grade");
 		session.removeAttribute("logNo");
-		
 		return "redirect:/";
 	}
 	
@@ -101,6 +100,7 @@ public class MemberController {
 		boolean result = memberService.quit(email,pw);
 		if(result) {
 			session.removeAttribute("logId");
+			session.removeAttribute("logNo");
 			session.removeAttribute("nick");
 			session.removeAttribute("grade");
 			return "redirect:/";

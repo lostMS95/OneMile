@@ -69,6 +69,7 @@ public class MemberServiceImpl implements MemberService {
 	//회원탈퇴
 	@Override
 	public boolean quit(String email, String pw) {
+		
 		return memberDao.quit(email,pw);
 	}
 	//아이디찾기

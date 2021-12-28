@@ -23,7 +23,7 @@ public class MilesVO {
 	private String viewYN;
 	
 	//이미지
-	//private List<MultipartFile> attach;
-	//private int imageNo;
-	//private int miNo;
+	private List<MultipartFile> attach;
+	private int imageNo;
+	private int miNo;
 }

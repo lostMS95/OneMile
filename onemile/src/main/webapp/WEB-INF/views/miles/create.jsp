@@ -15,7 +15,7 @@
         <div class="row center">
       <input type="text" name="area" placeholder="활동지역 작성(구까지)" style="width:300px;" required >
         </div>
-     	<select name="smallname">
+     	<select name="smallName">
      		<option value="축구">축구</option>
      	</select>
      	
