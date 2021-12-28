@@ -16,11 +16,13 @@ import com.kh.onemile.repository.image.CommuImageDao;
 import com.kh.onemile.repository.image.ImageDao;
 import com.kh.onemile.repository.map.MapDao;
 import com.kh.onemile.repository.member.MemberDao;
+import com.kh.onemile.util.Sequence;
 import com.kh.onemile.vo.CommuDetailVO;
 import com.kh.onemile.vo.CommuVO;
 
 @Service
 public class CommuServiceImpl implements CommuService{
+	final String SEQID = "commu_seq";
 	
 	@Autowired
 	private CommuDao commuDao;
@@ -36,12 +38,15 @@ public class CommuServiceImpl implements CommuService{
 	
 	@Autowired
 	private MemberDao memberDao;
+	
+	@Autowired
+	private Sequence seq;
 
 	@Override
 	public void write(CommuVO commuVo) throws IllegalStateException, IOException {
 		
 		//시퀀스 생성
-		int commuNo = commuDao.getSeq();
+		int commuNo = seq.nextSequence(SEQID);
 		
 		//게시글 Dto 설정
 		CommuDTO commuDto = new CommuDTO();
