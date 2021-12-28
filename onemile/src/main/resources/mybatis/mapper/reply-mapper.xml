@@ -20,4 +20,8 @@
 			#{viewYn},#{replyReciver}
 		)
 	</insert>
+		
+	<select  id="listByBoardNo" parameterType="int" resultType="ReplyVO">
+		select * from reply where board_no = #{boardNo}
+	</select>
 </mapper>

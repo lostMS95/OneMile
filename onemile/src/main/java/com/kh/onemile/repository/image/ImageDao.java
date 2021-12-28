@@ -1,6 +1,7 @@
 package com.kh.onemile.repository.image;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -12,4 +13,5 @@ public interface ImageDao {
 	boolean deleteImage(int imageNo);
 	ImageDTO get(int imageNo);
 	byte[] load(int imageNo) throws IOException;
+	List<ImageDTO> listByBoardNo(int boardNo);
 }

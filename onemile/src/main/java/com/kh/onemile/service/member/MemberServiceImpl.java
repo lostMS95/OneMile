@@ -77,4 +77,9 @@ public class MemberServiceImpl implements MemberService {
 	public boolean emailCheck(CertiDTO certiDTO) {
 		return certiDao.check(certiDTO);
 	}
+
+	@Override
+	public String getNick(int memberNo) {
+		return memberDao.getNick(memberNo);
+	}
 }

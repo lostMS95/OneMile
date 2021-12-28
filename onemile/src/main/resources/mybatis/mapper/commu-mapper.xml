@@ -29,8 +29,15 @@
 	</insert>
 	
 	<!-- 상세조회 -->
-	<select id="detail" parameterType="int" resultType="commuDTO">
-		select * from commu where commu_no = #{commuNo}
+	<select id="detail" parameterType="int" resultType="CommuDetailVO">
+		select 
+			co.*, bdt.lagname, me.nick, map.lat, map.lon, map.detailaddress
+		from
+			commu co left join bdt bdt on co.middlename = bdt.middlename
+			left join member me on co.member_no = me.member_no
+			left join map map on co.map_no = map.map_no
+		where
+			commu_no = #{commuNo}
 	</select>
 	
 	<!-- 메뉴별 목록 조회 -->

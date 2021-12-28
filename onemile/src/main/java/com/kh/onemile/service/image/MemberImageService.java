@@ -1,6 +1,7 @@
 package com.kh.onemile.service.image;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -58,5 +59,23 @@ public class MemberImageService implements ImageService{
 		//이미지 삭제 (비동기 처리 예정)
 		imageDao.deleteImage(imageNo);
 		memberImageDao.deleteImage(imageNo);
+	}
+	
+	@Override
+	public ImageVO loadImage(int imageNo) throws IOException {
+		MemberImageDTO memberImageDto = new MemberImageDTO();
+		memberImageDto = memberImageDao.get(imageNo);
+		
+		//이미지 불러오기
+		ImageVO imageVo = new ImageVO();
+		imageVo.setLoad(imageDao.load(memberImageDto.getImageNo()));
+		
+		return imageVo;
+	}
+
+	@Override
+	public List<ImageDTO> listByBoardNo(int boardNo) {
+		List<ImageDTO> list = imageDao.listByBoardNo(boardNo);
+		return list;
 	}
 }

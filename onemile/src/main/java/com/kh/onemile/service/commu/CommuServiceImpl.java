@@ -79,8 +79,6 @@ public class CommuServiceImpl implements CommuService{
 			//게시글 작성
 			commuDao.write(commuDto);
 		}
-		
-		
 	}
 	
 	//수정하기
@@ -134,37 +132,7 @@ public class CommuServiceImpl implements CommuService{
 	//상세조회
 	@Override
 	public CommuDetailVO detail(int commuNo) throws IOException {
-		CommuDTO commuDto = new CommuDTO();
-		commuDto = commuDao.detail(commuNo);
-		
-		CommuDetailVO commuVo = new CommuDetailVO();
-		commuVo.setContent(commuDto.getContent());
-		commuVo.setMiddleName(commuDto.getMiddleName());
-		commuVo.setHit(commuDto.getHit());
-		commuVo.setRegDate(commuDto.getRegDate());
-		commuVo.setTitle(commuDto.getTitle());
-		commuVo.setViewYN(commuDto.getViewYN());
-		
-		int memberNo = commuDto.getMemberNo();
-//		MemberDTO memberDto = new MemberDTO();
-//		memberDto = memberDao.getNick(memberNo);
-//		commuVo.setNick(memberDto.getNick());
-		
-		CommuImageDTO cmiDto = new CommuImageDTO();
-		cmiDto = commuImageDao.get(commuDto.getCmiNo());
-		
-		//이미지 불러오기
-		commuVo.setLoad(imageDao.load(cmiDto.getImageNo()));
-			
-		int mapNo = commuDto.getMapNo();
-		
-		MapDTO mapDto = new MapDTO();
-		mapDto = mapDao.get(mapNo);
-		
-		commuVo.setLat(mapDto.getLat());
-		commuVo.setLon(mapDto.getLon());
-		commuVo.setDetailaddress(mapDto.getDetailaddress());
-		
+		CommuDetailVO commuVo = commuDao.detail(commuNo);
 		return commuVo;
 	}
 }

@@ -14,4 +14,6 @@ public interface MemberDao {
 	MemberDTO findId(MemberDTO memberDTO);
 	//이메일 회원번호 가져오기
 	int getMemberNo(String email);
+	//회원 정보 가져오기
+	String getNick(int memberNo);
 }
