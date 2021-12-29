@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.kh.onemile.entity.commu.CommuDTO;
 import com.kh.onemile.vo.CommuDetailVO;
-import com.kh.onemile.vo.CommuVO;
 
 public interface CommuDao {
 	void write(CommuDTO commuDto);
