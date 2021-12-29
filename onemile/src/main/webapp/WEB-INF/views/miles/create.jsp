@@ -7,7 +7,7 @@
 		<h2>마일즈 생성</h2>
 	</div>
     <form method="post" enctype="multipart/form-data">
-    
+     <input type="hidden" name="adNo" value="1" />
     <div class="container-500 container-center">
       <div class="row center">
       <input type="text" name="name" placeholder="제목을 입력해주세요." style="width:500px;" required >
@@ -15,12 +15,10 @@
         <div class="row center">
       <input type="text" name="area" placeholder="활동지역 작성(구까지)" style="width:300px;" required >
         </div>
-     	<select>
-     		<option value="">스포츠</option>
+     	<select name="smallName">
+     		<option value="축구">축구</option>
      	</select>
-     	<select>
-     		<option value="smallname">축구</option>
-     	</select>
+     	
        <div class="row center">
           <textarea
             style="width: 500px; height: 400px"
@@ -28,7 +26,7 @@
             placeholder="내용을 입력해주세요."
             required></textarea>
         </div>
-         <input type="file" name="attach" />
+        <!--  <input type="file" name="attach" /> -->
           <input type="submit" value="개설" />
         </div>
        </form>
