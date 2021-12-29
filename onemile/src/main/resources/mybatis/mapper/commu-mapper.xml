@@ -12,19 +12,12 @@
 	<!-- 글쓰기 -->
 	<insert id="write" parameterType="commuDto">
 		insert into commu(
-			commu_no, member_no, middleanme,
-			title, content, regdate, hit, viewwyn
-			<if test="mapNo>0">
-				, map_no,
-			</if>
+			commu_no, member_no, middlename, map_no,
+			title, content
 		)
 		values(
-			#{commuNo}, #{memberNo},#{middlename},
-			#{title}, #{content},#{regdate},
-			#{hit}, #{viewYN}
-			<if test="mapNo>0">
-				, #{mapNo},
-			</if>
+			#{commuNo}, #{memberNo},#{middleName},#{mapNo},
+			#{title}, #{content}
 		)
 	</insert>
 	
