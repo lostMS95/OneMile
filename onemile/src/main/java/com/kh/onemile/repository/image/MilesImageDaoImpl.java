@@ -14,7 +14,8 @@ public class MilesImageDaoImpl implements MilesImageDao{
 
 	@Override
 	public void regMi(MilesImageDTO milesImageDto) {
-		sqlSession.insert("mi.regImage", milesImageDto);
+		milesImageDto.setThumbnail("1");//일단 넣기
+		sqlSession.insert("mi.regMi", milesImageDto);
 	}
 
 	@Override

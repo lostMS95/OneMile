@@ -51,6 +51,10 @@
 	<select id="getNick" parameterType="int" resultType="String">
 		select nick from member where member_no = #{memberNo}
 	</select>
-
+	
+	<!-- 회원 목록 -->
+	<select id="list" resultType="MemberDTO">
+		select * from member
+	</select>
 
 </mapper>

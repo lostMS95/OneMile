@@ -8,7 +8,7 @@
 	<insert id="regMi" parameterType="milesImageDTO">
 		insert into mi
 		values(
-			#{miNo}, #{imageNo}, #{milesNo}
+			#{miNo}, #{imageNo}, #{milesNo}, #{thumbnail}
 		)
 	</insert>
 	
