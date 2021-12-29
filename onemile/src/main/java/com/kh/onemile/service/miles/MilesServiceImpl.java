@@ -24,10 +24,10 @@ public class MilesServiceImpl implements MilesService{
 		System.out.println("생성한 마일즈 번호"+milesNo);
 		milesDao.create(milesVo);
 		
-		MilesImageDTO milesImageDTO = new MilesImageDTO();
-		milesImageDTO.setMilesNo(milesVo.getMilesNo());
-		milesImageDTO.setMiNo(milesVo.getMiNo());
-		milesImageDTO.setImageNo(milesVo.getImageNo());
+//		MilesImageDTO milesImageDTO = new MilesImageDTO();
+//		milesImageDTO.setMilesNo(milesVo.getMilesNo());
+//		milesImageDTO.setMiNo(milesVo.getMiNo());
+//		milesImageDTO.setImageNo(milesVo.getImageNo());
 		
 	}
 }

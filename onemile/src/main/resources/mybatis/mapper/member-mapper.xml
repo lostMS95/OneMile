@@ -8,6 +8,7 @@
 	<select id="get" parameterType="MemberDTO" resultType="MemberDTO">
 		select * from member where email = #{email}
 	</select>
+	
 	<!-- 회원가입 -->
 	<insert id="join" parameterType="MemberJoinVO">
 		insert into member(
@@ -22,7 +23,7 @@
 	<!-- 회원탈퇴(상태변경) -->
 	<update id="quit" parameterType="String">
 		update member set approve = 
-		'Y' where email = #{email} and pw = #{pw}  
+		'N' where email = #{email}
 	</update>
 
 	<!-- 아이디찾기 -->
@@ -34,5 +35,16 @@
 	<select id="memberNoByEmail" parameterType="String" resultType="int">
 		select member_no from member where email = #{email}
 	</select>
-
+	
+	<!-- 비밀번호 변경 -->
+	<update id="changePw" parameterType="map">
+		update member set pw = #{changePw}
+		where email = #{email}
+	</update>
+	
+	<!-- 단일조회(스트링) -->
+	<select id = "get2" parameterType="String" resultType="MemberDTO">
+		select * from member where email = #{email}
+	</select>
+	
 </mapper>

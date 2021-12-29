@@ -44,11 +44,19 @@ public class MemberDaoImpl implements MemberDao{
 	}
 	//회원탈퇴
 	@Override
-	public boolean quit(String email, String pw) {
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setEmail(email);
-		memberDTO.setPw(pw);
-		int count = sqlSession.delete("member.quit",memberDTO);
-		return count > 0;
+	public boolean quit(String email) {
+		return sqlSession.update("member.quit",email) > 0;
+	}
+	//단일조회
+	@Override
+	public MemberDTO get(String email) {	
+		return sqlSession.selectOne("member.get2",email);
+		
+	}
+	//비밀번호 변경
+	@Override
+	public boolean changePw(Map<String, Object> param) {
+		return sqlSession.update("member.changePw",param) > 0;
+		
 	}
 }

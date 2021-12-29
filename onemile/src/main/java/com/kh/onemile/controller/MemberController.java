@@ -124,8 +124,8 @@ public class MemberController {
 			return "redirect:find_id?error";
 		}
 	}
-
-	//비밀번호찾기
+	
+	//비밀번호찾기(이메일 전송)
 	@GetMapping("/find_pw")
 	public String cert() {
 		return "member/find_pw";
@@ -137,20 +137,34 @@ public class MemberController {
 		return "member/emailCheck";
 	}
 
-	//이메일 체크
+	//비밀번호찾기(이메일 체크)
 	@PostMapping("/emailCheck")
-	public String check(@ModelAttribute CertiDTO certiDTO) {
+	public String emailCheck(@ModelAttribute CertiDTO certiDTO) {
 		boolean success = memberService.emailCheck(certiDTO);
 		if(success) {
-			return "member/edit_pw";//성공하면 비밀번호 변경페이지로
+			return "member/edit_pw";//(임시)성공하면 비밀번호 변경페이지로?
 		}
 		else {
-			return "redirect:/";
+			return "redirect:/";//(임시)실패시 메인페이지로 이동
 		}
 	}
-	//비밀번호 변경 -> 필터 안씌움.
+	
+	//비밀번호 변경
 	@GetMapping("/edit_pw")
-	public String password() {
+	public String editPw() {
 		return "member/edit_pw";
+	}
+	@PostMapping("/edit_pw")
+	public String editPw(
+			@RequestParam String nowPw,
+			@RequestParam String changePw,
+			HttpSession session) {
+		String email = (String) session.getAttribute("logId");
+		boolean result = memberService.changePw(email, nowPw, changePw);
+		if(result) {
+			return "redirect:/";//마이페이지만들면 마이페이지로 보낼 예정
+		}else {
+			return "redirect:edit_pw?error";
+		}
 	}
 }
