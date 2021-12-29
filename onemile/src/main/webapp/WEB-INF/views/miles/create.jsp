@@ -26,7 +26,7 @@
             placeholder="내용을 입력해주세요."
             required></textarea>
         </div>
-        <!--  <input type="file" name="attach" /> -->
+        <input type="file" name="attach" />
           <input type="submit" value="개설" />
         </div>
        </form>
