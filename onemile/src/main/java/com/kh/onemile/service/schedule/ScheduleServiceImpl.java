@@ -15,9 +15,8 @@ public class ScheduleServiceImpl implements ScheduleService{
 	@Autowired
 	private CertiDao certiDao;
 	
-	@Scheduled(cron = "0 0 9 * * *")
-	
 	//스케줄러 설정
+	@Scheduled(cron = "0 0 9 * * *")//매일 오전 9시
 	@Override
 	public void execute() {
 		log.debug("DB 스케줄러 테스트중");
