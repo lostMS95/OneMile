@@ -13,7 +13,6 @@ public class MilesVO {
 	private int milesNo;
 	private String smallName;//소분류
 	private int memberNo;//호스트
-	private int adNo;//세팅번호
 	
 	//기본설정
 	private String name;
