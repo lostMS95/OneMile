@@ -11,7 +11,7 @@
 	
 	<!-- 등록하기 -->
 	<insert id="regImage" parameterType="imageDto">
-		insert into image value(
+		insert into image values(
 			#{imageNo}, #{uploadName}, #{saveName},
 			#{fileSize}, #{fileType}
 		)

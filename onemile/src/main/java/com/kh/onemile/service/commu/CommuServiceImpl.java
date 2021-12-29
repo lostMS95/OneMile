@@ -5,11 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.onemile.entity.commu.CommuDTO;
-import com.kh.onemile.entity.image.CommuImageDTO;
-import com.kh.onemile.entity.image.ImageDTO;
 import com.kh.onemile.entity.map.MapDTO;
 import com.kh.onemile.repository.commu.CommuDao;
 import com.kh.onemile.repository.image.CommuImageDao;
@@ -45,16 +42,18 @@ public class CommuServiceImpl implements CommuService{
 	@Override
 	public void write(CommuVO commuVo) throws IllegalStateException, IOException {
 		
-		//시퀀스 생성
-		int commuNo = seq.nextSequence("commu_seq");
+//		//시퀀스 생성
+//		int commuNo = seq.nextSequence("commu_seq");
 		
 		//게시글 Dto 설정
 		CommuDTO commuDto = new CommuDTO();
-		commuDto.setCommuNo(commuNo);
+		
+		
+		commuDto.setCommuNo(commuVo.getCommuNo());
 		commuDto.setMemberNo(commuVo.getMemberNo());
 		commuDto.setMiddleName(commuVo.getMiddleName());
 		commuDto.setTitle(commuVo.getTitle());
-		commuDto.setContent(commuVo.getTitle());
+		commuDto.setContent(commuVo.getContent());
 		
 		double lat = commuVo.getLat();
 		double lon = commuVo.getLon();
@@ -76,6 +75,7 @@ public class CommuServiceImpl implements CommuService{
 			
 			commuDao.write(commuDto);
 		}else {
+			commuDto.setMapNo(1);
 			//게시글 작성
 			commuDao.write(commuDto);
 		}
@@ -85,11 +85,9 @@ public class CommuServiceImpl implements CommuService{
 	@Override
 	public void change(CommuVO commuVo) throws IllegalStateException, IOException {
 		
-		int commuNo = commuVo.getCommuNo();
-		
 		//게시글 Dto 설정
 		CommuDTO commuDto = new CommuDTO();
-		commuDto.setCommuNo(commuNo);
+		commuDto.setCommuNo(commuVo.getCommuNo());
 		commuDto.setMemberNo(commuVo.getMemberNo());
 		commuDto.setMiddleName(commuVo.getMiddleName());
 		commuDto.setTitle(commuVo.getTitle());
@@ -111,7 +109,7 @@ public class CommuServiceImpl implements CommuService{
 			mapDto.setDetailaddress(commuVo.getDetailaddress());
 			
 			mapDao.regMap(mapDto);
-			commuDto.setMapNo(mapNo);
+			//commuDto.setMapNo(mapNo);
 		}
 			commuDao.write(commuDto);
 	}

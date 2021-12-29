@@ -34,7 +34,7 @@ public class ImageDaoImpl implements ImageDao{
 		multipartFile.transferTo(target);
 		
 		imageDto.setSaveName(String.valueOf(imageDto.getImageNo()));
-		sqlSession.insert("image.insertImage", imageDto);
+		sqlSession.insert("image.regImage", imageDto);
 	}
 
 	@Override

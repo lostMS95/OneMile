@@ -2,6 +2,8 @@ package com.kh.onemile.controller;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kh.onemile.service.commu.CommuService;
 import com.kh.onemile.service.image.ImageService;
 import com.kh.onemile.service.reply.ReplyService;
+import com.kh.onemile.util.Sequence;
 import com.kh.onemile.vo.CommuVO;
 import com.kh.onemile.vo.ImageVO;
 
@@ -31,18 +34,27 @@ public class CommuWithMapController {
 	@Autowired
 	private ReplyService replyService;
 	
+	@Autowired
+	private Sequence seq;
+	
 	@GetMapping("/matjip/write")
 	public String writeMatjip() {
 		return "commu/matjip/write";
 	}
 	
 	@PostMapping("/matjip/write")
-	public String writeMatjip(@ModelAttribute CommuVO commuVo, @ModelAttribute ImageVO imageVo) throws IllegalStateException, IOException {
+	public String writeMatjip(@ModelAttribute CommuVO commuVo, @ModelAttribute ImageVO imageVo, HttpSession session) throws IllegalStateException, IOException {
+		int memberNo = (int)session.getAttribute("logNo");
+		int commuNo = seq.nextSequence("commu_seq");
+		
+		commuVo.setMemberNo(memberNo);
+		commuVo.setCommuNo(commuNo);
 		commuService.write(commuVo);
 		if(imageVo!=null) {
+			imageVo.setCommuNo(commuNo);
 			imageService.regImage(imageVo);
 		}
-		return "redirect:matjip/list";
+		return "redirect:list";
 	}
 	
 	@GetMapping("/matjip/list")
@@ -64,12 +76,18 @@ public class CommuWithMapController {
 	}
 	
 	@PostMapping("/inc/write")
-	public String writeInc(@ModelAttribute CommuVO commuVo, @ModelAttribute ImageVO imageVo) throws IllegalStateException, IOException {
+	public String writeInc(@ModelAttribute CommuVO commuVo, @ModelAttribute ImageVO imageVo, HttpSession session) throws IllegalStateException, IOException {
+		int memberNo = (int)session.getAttribute("logNo");
+		int commuNo = seq.nextSequence("commu_seq");
+		
+		commuVo.setMemberNo(memberNo);
+		commuVo.setCommuNo(commuNo);
 		commuService.write(commuVo);
 		if(imageVo!=null) {
+			imageVo.setCommuNo(commuNo);
 			imageService.regImage(imageVo);
 		}
-		return "redirect:inc/list";
+		return "redirect:list";
 	}
 	
 	@GetMapping("/inc/list")
@@ -91,12 +109,18 @@ public class CommuWithMapController {
 	}
 	
 	@PostMapping("/yam/write")
-	public String writeYam(@ModelAttribute CommuVO commuVo, @ModelAttribute ImageVO imageVo) throws IllegalStateException, IOException {
+	public String writeYam(@ModelAttribute CommuVO commuVo, @ModelAttribute ImageVO imageVo, HttpSession session) throws IllegalStateException, IOException {
+		int memberNo = (int)session.getAttribute("logNo");
+		int commuNo = seq.nextSequence("commu_seq");
+		
+		commuVo.setMemberNo(memberNo);
+		commuVo.setCommuNo(commuNo);
 		commuService.write(commuVo);
 		if(imageVo!=null) {
+			imageVo.setCommuNo(commuNo);
 			imageService.regImage(imageVo);
 		}
-		return "redirect:yam/list";
+		return "redirect:list";
 	}
 	
 	@GetMapping("/yam/list")

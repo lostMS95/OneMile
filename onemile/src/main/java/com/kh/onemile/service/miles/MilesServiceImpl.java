@@ -3,7 +3,6 @@ package com.kh.onemile.service.miles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kh.onemile.entity.image.MilesImageDTO;
 import com.kh.onemile.repository.miles.MilesDao;
 import com.kh.onemile.util.Sequence;
 import com.kh.onemile.vo.MilesVO;

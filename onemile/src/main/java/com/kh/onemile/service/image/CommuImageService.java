@@ -45,10 +45,12 @@ public class CommuImageService implements ImageService{
 				
 				CommuImageDTO commuImageDto = new CommuImageDTO();
 				
-				int cmiNo = seq.nextSequence("cmi_seq");
+				int cmiNo = seq.nextSequence("COMMUIMG_seq");
 				commuImageDto.setCmiNo(cmiNo);
 				commuImageDto.setCommuNo(imageVo.getCommuNo());
 				commuImageDto.setImageNo(imageNo);
+				
+				System.out.println(commuImageDto);
 				commuImageDao.regCmi(commuImageDto);
 			}
 		}
