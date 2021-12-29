@@ -21,6 +21,8 @@ import com.kh.onemile.util.Sequence;
 import com.kh.onemile.vo.CommuVO;
 import com.kh.onemile.vo.ImageVO;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RequestMapping("/commu")
 @Controller
 public class CommuController {
@@ -39,6 +41,7 @@ public class CommuController {
 	
 	@GetMapping("/questions/write")
 	public String writeQ() {
+		
 		return "commu/questions/write";
 	}
 	
@@ -58,7 +61,8 @@ public class CommuController {
 	}
 	
 	@GetMapping("/questions/list")
-	public String listQ() {
+	public String listQ(Model model, @RequestParam String middleName) {
+		model.addAttribute("listQ", commuService.menuList(middleName));
 		return "commu/questions/list";
 	}
 	
@@ -93,7 +97,8 @@ public class CommuController {
 	}
 	
 	@GetMapping("/boonsil/list")
-	public String listBoonsil() {
+	public String listBoonsil(Model model, @RequestParam String middleName) {
+		model.addAttribute("listBoonsil", commuService.menuList(middleName));
 		return "commu/boonsil/list";
 	}
 	
@@ -126,7 +131,8 @@ public class CommuController {
 	}
 	
 	@GetMapping("/funding/list")
-	public String listFunding() {
+	public String listFunding(Model model, @RequestParam String middleName) {
+		model.addAttribute("listFunding", commuService.menuList(middleName));
 		return "commu/funding/list";
 	}
 	
