@@ -7,8 +7,7 @@
 		<h2>마일즈 생성</h2>
 	</div>
     <form method="post" enctype="multipart/form-data">
-     <input type="hidden" name="adNo" value="1" />
-    <div class="container-500 container-center">
+     <div class="container-500 container-center">
       <div class="row center">
       <input type="text" name="name" placeholder="제목을 입력해주세요." style="width:500px;" required >
         </div>
