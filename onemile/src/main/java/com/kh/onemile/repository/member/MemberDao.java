@@ -20,4 +20,7 @@ public interface MemberDao {
 	MemberDTO get(String email);
 	//비밀번호변경
 	boolean changePw(Map<String, Object> param);
+	//회원 정보 가져오기
+	String getNick(int memberNo);
+
 }

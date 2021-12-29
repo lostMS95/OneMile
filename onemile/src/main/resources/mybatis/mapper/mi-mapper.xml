@@ -14,7 +14,7 @@
 	
 	<!-- 단일조회 -->
 	<select id="getMi" parameterType="int" resultType="milesImageDTO">
-		select * from mi where mi_no = #{miNo}
+		select * from mi where image_no = #{imageNo}
 	</select>
 	
 	<!-- 삭제하기 -->

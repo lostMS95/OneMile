@@ -3,14 +3,18 @@ package com.kh.onemile.controller;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.onemile.service.commu.CommuService;
+import com.kh.onemile.service.image.ImageService;
+import com.kh.onemile.service.reply.ReplyService;
 import com.kh.onemile.vo.CommuVO;
 
 @RequestMapping("/commu")
@@ -19,6 +23,12 @@ public class CommuWithMapController {
 
 	@Autowired
 	private CommuService commuService;
+	
+	@Autowired @Qualifier("commuImage")
+	private ImageService imageService;
+	
+	@Autowired
+	private ReplyService replyService;
 	
 	@GetMapping("/matjip/write")
 	public String writeMatjip() {
@@ -37,10 +47,10 @@ public class CommuWithMapController {
 	}
 	
 	@RequestMapping("/matjip/detail")
-	public String detailMatjip(CommuVO commuVo, Model model) throws IOException {
-		
-		model.addAttribute("read", commuService.detail(commuVo.getCommuNo()));
-		
+	public String detailMatjip(@RequestParam int boardNo, Model model) throws IOException {
+		model.addAttribute("commuDetailVO", commuService.detail(boardNo));
+		model.addAttribute("imageNoList", imageService.listByBoardNo(boardNo)); //boardNo로 imageNo list를 불러오는 거 만들기
+		model.addAttribute("replyVOList", replyService.listByBoardNo(boardNo)); //boardNo로 댓글 찾아주는 거 만들기
 		return "commu/matjip/detail";
 	}
 	
@@ -61,10 +71,10 @@ public class CommuWithMapController {
 	}
 	
 	@RequestMapping("/inc/detail")
-	public String detailInc(CommuVO commuVo, Model model) throws IOException {
-		
-		model.addAttribute("read", commuService.detail(commuVo.getCommuNo()));
-		
+	public String detailInc(@RequestParam int boardNo, Model model) throws IOException {
+		model.addAttribute("commuDetailVO", commuService.detail(boardNo));
+		model.addAttribute("imageNoList", imageService.listByBoardNo(boardNo));
+		model.addAttribute("replyVOList", replyService.listByBoardNo(boardNo));
 		return "commu/inc/detail";
 	}
 	
@@ -85,10 +95,10 @@ public class CommuWithMapController {
 	}
 	
 	@RequestMapping("/yam/detail")
-	public String detailYam(CommuVO commuVo, Model model) throws IOException {
-		
-		model.addAttribute("read", commuService.detail(commuVo.getCommuNo()));
-		
+	public String detailYam(@RequestParam int boardNo, Model model) throws IOException {
+		model.addAttribute("commuDetailVO", commuService.detail(boardNo));
+		model.addAttribute("imageNoList", imageService.listByBoardNo(boardNo));
+		model.addAttribute("replyVOList", replyService.listByBoardNo(boardNo));
 		return "commu/yam/detail";
 	}
 }

@@ -47,6 +47,7 @@ public class MemberDaoImpl implements MemberDao{
 	public boolean quit(String email) {
 		return sqlSession.update("member.quit",email) > 0;
 	}
+
 	//단일조회
 	@Override
 	public MemberDTO get(String email) {	
@@ -58,5 +59,11 @@ public class MemberDaoImpl implements MemberDao{
 	public boolean changePw(Map<String, Object> param) {
 		return sqlSession.update("member.changePw",param) > 0;
 		
+	}
+
+	//커뮤 글 작성자, 소모임 모임장, 마일즈 모임장 표기를 위해 닉네임 가져오기
+	@Override
+	public String getNick(int memberNo) {
+		return sqlSession.selectOne("member.getNick", memberNo);
 	}
 }

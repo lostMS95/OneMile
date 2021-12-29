@@ -87,6 +87,7 @@ public class MemberServiceImpl implements MemberService {
 	public boolean emailCheck(CertiDTO certiDTO) {
 		return certiDao.check(certiDTO);
 	}
+
 	//비밀번호 변경
 	@Override
 	public boolean changePw(String email, String nowPw, String changePw) {
@@ -103,4 +104,9 @@ public class MemberServiceImpl implements MemberService {
 		}
 	}
 	
+	@Override
+	public String getNick(int memberNo) {
+		return memberDao.getNick(memberNo);
+	}
+
 }

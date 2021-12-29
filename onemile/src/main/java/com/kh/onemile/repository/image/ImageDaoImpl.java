@@ -2,6 +2,7 @@ package com.kh.onemile.repository.image;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.ibatis.session.SqlSession;
@@ -52,5 +53,11 @@ public class ImageDaoImpl implements ImageDao{
 		File target = new File(directory, String.valueOf(imageNo));
 		byte[] data = FileUtils.readFileToByteArray(target);
 		return data;
+	}
+
+	@Override
+	public List<ImageDTO> listByBoardNo(int boardNo) {
+		List<ImageDTO> list = sqlSession.selectList("image.listByBoardNo", boardNo);
+		return list;
 	}
 }

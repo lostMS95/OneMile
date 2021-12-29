@@ -18,8 +18,8 @@ public class CommuImageDaoImpl implements CommuImageDao{
 	}
 
 	@Override
-	public CommuImageDTO get(int cmiNo) {
-		return sqlSession.selectOne("cmi.get", cmiNo);
+	public CommuImageDTO get(int imageNo) {
+		return sqlSession.selectOne("cmi.get", imageNo);
 	}
 
 	@Override
