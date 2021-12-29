@@ -26,4 +26,5 @@ public class MilesVO {
 	private List<MultipartFile> attach;
 	private int imageNo;
 	private int miNo;
+	private String thumbnailCount;
 }

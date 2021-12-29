@@ -10,8 +10,8 @@
                 name,context,area
         )
         values(
-            #{milesNo}, #{smallname},#{memberNo},#{adNo},
-            #{name},#{context},#{area}
+            #{milesNo}, #{smallName}, #{memberNo}, #{adNo},
+            #{name}, #{context}, #{area}
         )
 	</insert>
 	
