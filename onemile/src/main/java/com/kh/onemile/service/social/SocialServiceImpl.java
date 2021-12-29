@@ -4,10 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.kh.onemile.entity.commu.CommuDTO;
 import com.kh.onemile.entity.map.MapDTO;
 import com.kh.onemile.entity.social.SocialDTO;
-import com.kh.onemile.repository.image.SocialImageDao;
 import com.kh.onemile.repository.map.MapDao;
 import com.kh.onemile.repository.member.MemberDao;
 import com.kh.onemile.repository.social.SocialDao;

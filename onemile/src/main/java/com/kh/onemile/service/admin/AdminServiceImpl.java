@@ -10,6 +10,7 @@ import com.kh.onemile.entity.admin.ApproveDTO;
 import com.kh.onemile.entity.admin.MemberListDTO;
 import com.kh.onemile.repository.admin.AdminDao;
 import com.kh.onemile.util.Sequence;
+
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
