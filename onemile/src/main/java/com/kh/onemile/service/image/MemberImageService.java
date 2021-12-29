@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,8 +16,7 @@ import com.kh.onemile.repository.image.MemberImageDao;
 import com.kh.onemile.util.Sequence;
 import com.kh.onemile.vo.ImageVO;
 
-@Service
-@Qualifier("memberImage")
+@Component
 public class MemberImageService implements ImageService{
 
 	@Autowired
