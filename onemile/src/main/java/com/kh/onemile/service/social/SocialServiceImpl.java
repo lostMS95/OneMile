@@ -39,7 +39,7 @@ public class SocialServiceImpl implements SocialService{
 		SocialDTO socialDto = new SocialDTO();
 		socialDto.setSocialNo(socialNo);
 		socialDto.setMemberNo(socialVo.getMemberNo());
-		socialDto.setName(socialVo.getName());
+		socialDto.setTitle(socialVo.getName());
 		socialDto.setType(socialVo.getType());
 		socialDto.setContext(socialVo.getContext());
 		socialDto.setStartDate(socialVo.getStratDate());
@@ -90,7 +90,7 @@ public class SocialServiceImpl implements SocialService{
 		socialVo.setContext(socialDto.getContext());
 		socialVo.setEndDate(socialDto.getEndDate());
 		socialVo.setMemberNo(memberNo);
-		socialVo.setName(socialDto.getName());
+		socialVo.setName(socialDto.getTitle());
 		socialVo.setSmalltype(socialDto.getSmallType());
 		socialVo.setType(socialDto.getType());
 		return socialVo;
