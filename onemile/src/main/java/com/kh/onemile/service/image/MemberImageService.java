@@ -53,7 +53,9 @@ public class MemberImageService implements ImageService{
 			}
 		}
 	}
-
+	public void makeDTO(String tableName , int tablePrimary,int typeNo , int imgNO ) {
+		
+	}
 	@Override
 	public void deleteImage(int imageNo) {
 		//이미지 삭제 (비동기 처리 예정)
