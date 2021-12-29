@@ -7,6 +7,7 @@
 	제목 <input type="text" name="title"><br>
 	내용 <textarea cols="100" rows="20" name="content"></textarea><br>
 	파일 <input type="file" name="attach">
+	<input type="submit" value="등록하기">
 </form>
 
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>

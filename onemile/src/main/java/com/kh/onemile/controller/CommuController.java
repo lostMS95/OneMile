@@ -2,6 +2,8 @@ package com.kh.onemile.controller;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -37,7 +39,9 @@ public class CommuController {
 	}
 	
 	@PostMapping("/questions/write")
-	public String writeQ(@ModelAttribute CommuVO commuVo, @ModelAttribute ImageVO imageVo) throws IllegalStateException, IOException {
+	public String writeQ(@ModelAttribute CommuVO commuVo, @ModelAttribute ImageVO imageVo, HttpSession session) throws IllegalStateException, IOException {
+		int memberNo = (int) session.getAttribute("memberNo");
+		commuVo.setMemberNo(memberNo);
 		commuService.write(commuVo);
 		if(imageVo!=null) {
 			imageService.regImage(imageVo);
