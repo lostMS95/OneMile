@@ -24,4 +24,6 @@ public class ReplyVO {
 	
 	private String writerNick;//댓글 작성자 닉네임
 	private String reciverNick;//댓글 받는 사람 닉네임
+	
+	private int replyNo;
 }

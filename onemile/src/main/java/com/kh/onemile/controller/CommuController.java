@@ -20,8 +20,7 @@ import com.kh.onemile.service.reply.ReplyService;
 import com.kh.onemile.util.Sequence;
 import com.kh.onemile.vo.CommuVO;
 import com.kh.onemile.vo.ImageVO;
-
-import lombok.extern.slf4j.Slf4j;
+import com.kh.onemile.vo.ReplyVO;
 
 @RequestMapping("/commu")
 @Controller
@@ -74,6 +73,12 @@ public class CommuController {
 		model.addAttribute("replyVOList", replyService.listByBoardNo(boardNo)); //boardNo로 댓글 찾아주는 거 만들기
 		
 		return "commu/questions/detail";
+	}
+	
+	@PostMapping("/boonsil/detail")
+	public String detailQ(@RequestParam ReplyVO replyVo, Model model) throws IllegalStateException, IOException {
+		replyService.writeReply(replyVo);
+		return "redirect:list";
 	}
 	
 	@GetMapping("/boonsil/write")
